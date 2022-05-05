@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 
-function Router(props) {
-    return ( 
+function Rutas(props) {
+    return (
         <Routes>
-            <Route></Route>
+            <Route path="/">
+                
+            </Route>
         </Routes>
-     );
+    );
 }
 
-export default Router;
+export default Rutas;
