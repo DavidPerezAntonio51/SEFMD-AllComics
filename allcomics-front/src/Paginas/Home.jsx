@@ -13,7 +13,6 @@ function Home(props) {
           />
           <Carousel.Caption>
           <h3>Tienda de comics no autorizada</h3>
-          <p>Estaremos subiendo contenido proximamente.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
