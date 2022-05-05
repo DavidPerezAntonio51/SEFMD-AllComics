@@ -1,9 +1,10 @@
-import {container, Navbar} from "react bootstrap";
+
+import { Container, } from "react-bootstrap";
 
 function Home(props) {
     return ( 
-        <container>
-          <Carousel>
+        <Container>
+                    <Carousel>
   <Carousel.Item>
     <img
       className="d-block w-100"
@@ -39,8 +40,8 @@ function Home(props) {
       <p>Estaremos subiendo contenido proximamente.</p>
     </Carousel.Caption>
   </Carousel.Item>
-</Carousel>  
-        </container>
+</Carousel>
+        </Container>
     );
 }
 
