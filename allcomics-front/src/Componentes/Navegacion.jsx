@@ -33,10 +33,13 @@ function Navegacion() {
                     </Form>
                     <Nav>
                         {!managelogin.Loged
-                        ?
-                        <Nav.Link as={Link} to="login">Iniciar Sesion</Nav.Link>
-                        :
-                        <Nav.Link as={Link} to="login">Cerrar Sesion</Nav.Link>
+                            ?
+                            <Nav.Link as={Link} to="login">Iniciar Sesion</Nav.Link>
+                            :
+                            <>
+                                <Nav.Link as={Link} to="carrito">Carrito de Compra</Nav.Link>
+                                <Nav.Link as={Link} to="login">Cerrar Sesion</Nav.Link>
+                            </>
                         }
                     </Nav>
                 </Navbar.Collapse>
