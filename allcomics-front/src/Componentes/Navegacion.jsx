@@ -30,7 +30,7 @@ function Navegacion() {
                         <Button variant="outline-success">Búsqueda</Button>
                     </Form>
                     <Nav>
-                        <Nav.Link>Iniciar Sesion</Nav.Link>
+                        <Nav.Link as={Link} to="login">Iniciar Sesion</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
