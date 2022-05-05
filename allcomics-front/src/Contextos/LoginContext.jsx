@@ -4,8 +4,8 @@ import { createContext, useEffect, useState } from 'react';
 const LoginContext = createContext();
 
 const UserProvider = ({ children }) => {
-    const [JWT, setJWT] = useState(window.localStorage.getItem("jwt"));
-    const [Loged, setLoged] = useState(window.localStorage.getItem("jwt")?true:false);
+    const [JWT, setJWT] = useState(window.localStorage.getItem("AllComicsJWT"));
+    const [Loged, setLoged] = useState(window.localStorage.getItem("AllComicsJWT")?true:false);
     useEffect(() => {
         if(JWT){
             setLoged(true);
@@ -15,18 +15,18 @@ const UserProvider = ({ children }) => {
     const setSesion = (jwt)=> {
         setJWT(jwt);
         setLoged(true);
-        window.localStorage.setItem("jwt",jwt);
+        window.localStorage.setItem("AllComicsJWT",jwt);
     };
 
     const closeSesion = () => {
         setJWT(null);
         setLoged(false);
-        window.localStorage.removeItem("jwt");
+        window.localStorage.removeItem("AllComicsJWT");
     }
 
     const UpdateJWT = (jwt)=> {
         window.localStorage.clear();
-        window.localStorage.setItem("jwt",jwt);
+        window.localStorage.setItem("jAllComicsJWT",jwt);
     }
 
     const data = { JWT, Loged, setSesion, closeSesion, UpdateJWT}

@@ -1,6 +1,8 @@
+import CarroCompra from "./CarroCompra";
+import { Carousel } from "react-bootstrap";
+import { Container, } from "react-bootstrap";
+import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png";
 
-import { Carousel, Container, } from "react-bootstrap";
-import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png"
 function Home(props) {
   return (
     <Container>
@@ -40,6 +42,7 @@ function Home(props) {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <CarroCompra/>
     </Container>
   );
 }
