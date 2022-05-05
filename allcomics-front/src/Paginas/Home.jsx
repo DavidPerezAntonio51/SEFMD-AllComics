@@ -1,8 +1,10 @@
-function Home() {
+import { Container } from "react-bootstrap";
+
+function Home(props) {
     return ( 
-        <div>
-            
-        </div>
+        <Container>
+            prueba
+        </Container>
     );
 }
 
