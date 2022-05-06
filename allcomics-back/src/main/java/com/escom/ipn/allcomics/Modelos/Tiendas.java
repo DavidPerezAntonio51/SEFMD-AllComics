@@ -5,6 +5,10 @@
  */
 package com.escom.ipn.allcomics.Modelos;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,9 +16,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  * @author DEZKS
  */
-@Document("TiposPago")
-public class TipoPago {
+@Document("Tiendas")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Tiendas {
     
     @Id
+    @Getter
+    @Setter
     private String id;
+    @Getter
+    @Setter
+    private String nombre;
+    @Getter
+    @Setter
+    private String rfc;
+    @Getter
+    @Setter
+    private String direccion;
 }

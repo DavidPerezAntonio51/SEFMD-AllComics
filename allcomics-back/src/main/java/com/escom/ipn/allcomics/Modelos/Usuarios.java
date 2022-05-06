@@ -5,21 +5,45 @@
  */
 package com.escom.ipn.allcomics.Modelos;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
  * @author DEZKS
  */
-@All
-public class Usuario {
+@AllArgsConstructor
+@NoArgsConstructor
+@Document("Usuarios")
+public class Usuarios {
     
     @Id
+    @Getter
+    @Setter
     private String id;
+    @Getter
+    @Setter
     private String username;
+    @Getter
+    @Setter
     private String nombreCompleto;
+    @Getter
+    @Setter
     private String direccion;
+    @Getter
+    @Setter
     private String correo;
+    @Getter
+    @Setter
     private String contraseña;
+    @Getter
+    @Setter
     private Integer telefono;
+    @Getter
+    @Setter
+    private String rfc;
 }
