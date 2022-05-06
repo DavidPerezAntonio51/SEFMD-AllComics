@@ -32,6 +32,7 @@ function Login() {
                 <Button variant="primary" type="submit">
                     Iniciar Sesion
                 </Button>
+                ¿Aun no tienes una cuenta? ¡Registrate!
             </Form>
         </Container>
     );

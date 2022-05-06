@@ -7,50 +7,50 @@ function Home(props) {
   return (
     <Container>
       <Row>
-                <Col>
-                <img
-            className="d-block w-100"
-            src={Layout1}/>
-                </Col>
-                <Col>
-      <Carousel>
-        <Carousel.Item>
+        <Col>
           <img
             className="d-block w-100"
-            src={Carrusel_Layout1}
-            alt="Wellcome to ALLComics"
-          />
-          <Carousel.Caption>
-        
-          <p>Tienda de comics no autorizada</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={Carrusel_Layout1}
-            alt="Second slide"
-          />
+            src={Layout1} />
+        </Col>
+        <Col>
+          <Carousel>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Carrusel_Layout1}
+                alt="Wellcome to ALLComics"
+              />
+              <Carousel.Caption>
 
-          <Carousel.Caption>
-            <h3>Coming Soon...</h3>
-            <p>Estaremos subiendo contenido proximamente.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={Carrusel_Layout1}
-            alt="Third slide"
-          />
+                <p>Tienda de comics no autorizada</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Carrusel_Layout1}
+                alt="Second slide"
+              />
 
-          <Carousel.Caption>
-            <h3>Coming Soon...</h3>
-            <p>Estaremos subiendo contenido proximamente.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-      </Col>
+              <Carousel.Caption>
+                <h3>Coming Soon...</h3>
+                <p>Estaremos subiendo contenido proximamente.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Carrusel_Layout1}
+                alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Coming Soon...</h3>
+                <p>Estaremos subiendo contenido proximamente.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </Col>
       </Row>
     </Container>
   );
