@@ -1,4 +1,3 @@
-import CarroCompra from "./CarroCompra";
 import { Carousel, Col, Row } from "react-bootstrap";
 import { Container, } from "react-bootstrap";
 import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png";
@@ -53,7 +52,6 @@ function Home(props) {
       </Carousel>
       </Col>
       </Row>
-      <CarroCompra/>
     </Container>
   );
 }
