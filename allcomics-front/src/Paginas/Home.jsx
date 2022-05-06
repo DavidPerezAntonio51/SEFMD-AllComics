@@ -1,11 +1,19 @@
 import CarroCompra from "./CarroCompra";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Col, Row } from "react-bootstrap";
 import { Container, } from "react-bootstrap";
 import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png";
+import Layout1 from "../Assests/Layout1.png"
 
 function Home(props) {
   return (
     <Container>
+      <Row>
+                <Col>
+                <img
+            className="d-block w-100"
+            src={Layout1}/>
+                </Col>
+                <Col>
       <Carousel>
         <Carousel.Item>
           <img
@@ -14,13 +22,14 @@ function Home(props) {
             alt="Wellcome to ALLComics"
           />
           <Carousel.Caption>
-          <h3>Tienda de comics no autorizada</h3>
+        
+          <p>Tienda de comics no autorizada</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Second slide&bg=282c34"
+            src={Carrusel_Layout1}
             alt="Second slide"
           />
 
@@ -32,7 +41,7 @@ function Home(props) {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
+            src={Carrusel_Layout1}
             alt="Third slide"
           />
 
@@ -42,6 +51,8 @@ function Home(props) {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      </Col>
+      </Row>
       <CarroCompra/>
     </Container>
   );
