@@ -3,8 +3,11 @@ import { Container } from "react-bootstrap";
 import SumaRestaArticulo from "../Componentes/SumaRestaArticulo";
 import MetodoCompra from "../Componentes/CarritoDeCompra/MetodoCompra";
 import CheckMetodoPago from "../Componentes/CarritoDeCompra/CheckMetodoPago";
+import { useContext } from "react";
+import PaymentContext from "../Contextos/PaymentContext";
 
 function CarroCompra() {
+    const paymentContext = useContext(PaymentContext);
     return (
         <Container>
             <style type="text/css">
@@ -113,10 +116,15 @@ function CarroCompra() {
                         </Badge>
                     </h1>
                     <Stack gap={3}>
-                        <Button variant="flat">Cambiar Método de Pago</Button>{' '}
-                        <CheckMetodoPago>
-                        </CheckMetodoPago>
-                        <MetodoCompra></MetodoCompra>
+                        <Button variant="flat" onClick={paymentContext.switchShowPaymentMetod}>Cambiar Método de Pago</Button>{' '}
+                        {paymentContext.ShowPaymentMetod
+                            ?
+                            <Container>
+                                <CheckMetodoPago />
+                                <MetodoCompra />
+                            </Container>
+                            : ""
+                        }
                         <Button variant="primary">Realizar Pago</Button>{' '}
                         <Button variant="cancel">Vaciar Carrito</Button>
                     </Stack>
