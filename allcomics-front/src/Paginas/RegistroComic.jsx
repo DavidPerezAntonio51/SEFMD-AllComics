@@ -1,4 +1,4 @@
-import { Container, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 
 function RegistroComic() {
     return (
@@ -21,8 +21,8 @@ function RegistroComic() {
                     <Form.Control type="text" placeholder="Ingresa la editorial del comic" />
                 </Form.Group>
 
-                <Form.Group controlId="formFileSm" className="mb-3">
-                    <Form.Label>Small file input example</Form.Label>
+                <Form.Group controlId="formImagenComic" className="mb-3">
+                    <Form.Label>Seleccione la imagen del Comic</Form.Label>
                     <Form.Control type="file" size="sm" />
                 </Form.Group>
 
