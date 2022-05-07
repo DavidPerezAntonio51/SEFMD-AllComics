@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Container, FloatingLabel, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Login() {
     const [correo , setCorreo] = useState("");
@@ -40,7 +41,7 @@ function Login() {
                 <Button variant="primary" type="submit">
                     Iniciar Sesion
                 </Button>
-                ¿Aun no tienes una cuenta? ¡Registrate!
+                ¿Aun no tienes una cuenta? <Link to={"/registro"}>¡Registrate!</Link>
             </Form>
         </Container>
     );
