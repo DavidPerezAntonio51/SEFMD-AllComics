@@ -55,7 +55,7 @@ public class ServicioTokens {
         key = Keys.hmacShaKeyFor(SECRETO.getBytes());
         Jws<Claims> tokenparseado = PARSERBUILDER.setSigningKey(key).build().parseClaimsJws(token);
         Map<String, String> user = (Map<String, String>) tokenparseado.getBody().get(USER);
-        return new Usuarios(user.get("id"), user.get("username"), user.get("nombreCompleto"), user.get("direccion"), "", "", Integer.parseInt(user.get("telefono")), user.get("rfc"));
+        return new Usuarios(user.get("id"), user.get("username"), user.get("nombreCompleto"), user.get("direccion"), "", "", user.get("telefono"), user.get("rfc"));
     }
     
     public String refrescarToken(String JWT){
@@ -63,6 +63,6 @@ public class ServicioTokens {
         key = Keys.hmacShaKeyFor(SECRETO.getBytes());
         Jws<Claims> tokenparseado = PARSERBUILDER.setSigningKey(key).build().parseClaimsJws(token);
         Map<String, String> user = (Map<String, String>) tokenparseado.getBody().get(USER);
-        return this.crearTokenAutenticacion(new Usuarios(user.get("id"), user.get("username"), user.get("nombreCompleto"), user.get("direccion"), "", "", Integer.parseInt(user.get("telefono")), user.get("rfc")));
+        return this.crearTokenAutenticacion(new Usuarios(user.get("id"), user.get("username"), user.get("nombreCompleto"), user.get("direccion"), "", "", user.get("telefono"), user.get("rfc")));
     }
 }

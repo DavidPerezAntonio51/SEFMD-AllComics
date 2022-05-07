@@ -42,7 +42,7 @@ public class Usuarios {
     private String contraseña;
     @Getter
     @Setter
-    private Integer telefono;
+    private String telefono;
     @Getter
     @Setter
     private String rfc;
