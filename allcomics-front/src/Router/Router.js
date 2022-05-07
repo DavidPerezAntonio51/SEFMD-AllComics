@@ -5,6 +5,7 @@ import CarroCompra from "../Paginas/CarroCompra";
 import ListaComics from "../Paginas/ListaComics";
 import ListaTiendas from "../Paginas/ListaTiendas";
 import RegistroUsuario from "../Paginas/RegistroUsuario";
+import { PaymentProvier } from "../Contextos/PaymentContext";
 
 function Rutas(props) {
     return (
@@ -14,8 +15,8 @@ function Rutas(props) {
                 <Route path="comics" element={<ListaComics/>}/>
                 <Route path="tiendas" element={<ListaTiendas/>}/>
                 <Route path="login" element={<Login/>}/>
-                <Route path="carrito" element={<CarroCompra/>}/>
                 <Route path="registro" element={<RegistroUsuario/>}/>
+                <Route path="carrito" element={<PaymentProvier><CarroCompra/></PaymentProvier>}/>
             </Route>
         </Routes>
     );
