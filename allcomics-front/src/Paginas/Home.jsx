@@ -6,6 +6,13 @@ import Layout1 from "../Assests/Layout1.png"
 function Home(props) {
   return (
     <Container>
+    <style type="text/css">
+      {`
+        .text-purple{
+          color:purple;
+      }
+        `}
+    </style>
       <Row>
         <Col>
           <img
@@ -33,8 +40,8 @@ function Home(props) {
               />
 
               <Carousel.Caption>
-                <h3 class="text-danger">Coming Soon...</h3>
-                <p class="text-danger">Estaremos subiendo contenido proximamente.</p>
+                <h3 class="text-purple">Coming Soon...</h3>
+                <p class="text-purple">Estaremos subiendo contenido proximamente.</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -45,8 +52,8 @@ function Home(props) {
               />
 
               <Carousel.Caption>
-                <h3 class="text-danger">Coming Soon...</h3>
-                <p class="text-danger">Estaremos subiendo contenido proximamente.</p>
+                <h3 class="text-purple">Coming Soon...</h3>
+                <p class="text-purple">Estaremos subiendo contenido proximamente.</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
