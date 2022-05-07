@@ -1,8 +1,8 @@
 import { Badge, Button, Col, ListGroup, Row, Stack } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import SumaRestaArticulo from "../Componentes/SumaRestaArticulo";
-import MetodoCompra from "../Paginas/MetodoCompra";
-import CheckMetodoPago from "../Componentes/CheckMetodoPago";
+import MetodoCompra from "../Componentes/CarritoDeCompra/MetodoCompra";
+import CheckMetodoPago from "../Componentes/CarritoDeCompra/CheckMetodoPago";
 
 function CarroCompra() {
     return (
