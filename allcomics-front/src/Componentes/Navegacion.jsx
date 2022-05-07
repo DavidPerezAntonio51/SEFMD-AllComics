@@ -29,7 +29,7 @@ function Navegacion() {
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success">Búsqueda</Button>
+                        <Button variant="outline-success">Buscar</Button>
                     </Form>
                     <Nav>
                         {!managelogin.Loged

@@ -22,7 +22,7 @@ function Home(props) {
               />
               <Carousel.Caption>
 
-                <p>Tienda de comics no autorizada</p>
+                <p class="text-muted">Tienda de comics no autorizada</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -33,8 +33,8 @@ function Home(props) {
               />
 
               <Carousel.Caption>
-                <h3>Coming Soon...</h3>
-                <p>Estaremos subiendo contenido proximamente.</p>
+                <h3 class="text-danger">Coming Soon...</h3>
+                <p class="text-danger">Estaremos subiendo contenido proximamente.</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -45,8 +45,8 @@ function Home(props) {
               />
 
               <Carousel.Caption>
-                <h3>Coming Soon...</h3>
-                <p>Estaremos subiendo contenido proximamente.</p>
+                <h3 class="text-danger">Coming Soon...</h3>
+                <p class="text-danger">Estaremos subiendo contenido proximamente.</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
