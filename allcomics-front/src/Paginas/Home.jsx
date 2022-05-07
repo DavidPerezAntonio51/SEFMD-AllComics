@@ -40,8 +40,8 @@ function Home(props) {
               />
 
               <Carousel.Caption>
-                <h3 class="text-purple">Coming Soon...</h3>
-                <p class="text-purple">Estaremos subiendo contenido proximamente.</p>
+                <h3 className="text-purple">Coming Soon...</h3>
+                <p className="text-purple">Estaremos subiendo contenido proximamente.</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -52,8 +52,8 @@ function Home(props) {
               />
 
               <Carousel.Caption>
-                <h3 class="text-purple">Coming Soon...</h3>
-                <p class="text-purple">Estaremos subiendo contenido proximamente.</p>
+                <h3 className="text-purple">Coming Soon...</h3>
+                <p className="text-purple">Estaremos subiendo contenido proximamente.</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

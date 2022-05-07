@@ -19,8 +19,8 @@ function Navegacion() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link>Lista de Comics</Nav.Link>
-                        <Nav.Link>Lista de Tiendas</Nav.Link>
+                        <Nav.Link as={Link} to="comics" >Lista de Comics</Nav.Link>
+                        <Nav.Link as={Link} to="tiendas">Lista de Tiendas</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                         <FormControl
