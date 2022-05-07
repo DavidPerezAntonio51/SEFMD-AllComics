@@ -59,12 +59,12 @@ function MetodoCompra() {
         </Container>
         :
         <Container>
-          <h3 class="primary"> Transferencia electrónica</h3>
-          <p class="p-2 mb-2 bg-info text-white text-center">Número de Cuenta</p>
-          <p class="text-muted text-center">1943 0356 01 7254134980</p>
-          <p class="p-2 mb-2 bg-info text-white text-center">Banco</p>
-          <p class="text-muted text-center">Santander Serfin</p>
-          <p class="text-dark"> El deposito se verá reflejado en un máximo de 48 horas o 2 días hábiles</p>
+          <h3> Transferencia electrónica</h3>
+          <p className="p-2 mb-2 bg-info text-white text-center">Número de Cuenta</p>
+          <p className="text-muted text-center">1943 0356 01 7254134980</p>
+          <p className="p-2 mb-2 bg-info text-white text-center">Banco</p>
+          <p className="text-muted text-center">Santander Serfin</p>
+          <p className="text-dark"> El deposito se verá reflejado en un máximo de 48 horas o 2 días hábiles</p>
         </Container>
       }
     </Row >
