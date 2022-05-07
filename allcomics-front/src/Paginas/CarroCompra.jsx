@@ -2,6 +2,7 @@ import { Badge, Button, Col, ListGroup, Row, Stack } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import SumaRestaArticulo from "../Componentes/SumaRestaArticulo";
 import MetodoCompra from "../Paginas/MetodoCompra";
+import CheckMetodoPago from "../Componentes/CheckMetodoPago";
 
 function CarroCompra() {
     return (
@@ -113,6 +114,8 @@ function CarroCompra() {
                     </h1>
                     <Stack gap={3}>
                         <Button variant="flat">Cambiar Método de Pago</Button>{' '}
+                        <CheckMetodoPago>
+                        </CheckMetodoPago>
                         <MetodoCompra></MetodoCompra>
                         <Button variant="primary">Realizar Pago</Button>{' '}
                         <Button variant="cancel">Vaciar Carrito</Button>
