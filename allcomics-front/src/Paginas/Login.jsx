@@ -1,6 +1,14 @@
+import { useState } from "react";
 import { Button, Container, FloatingLabel, Form } from "react-bootstrap";
 
 function Login() {
+    const [correo , setCorreo] = useState("");
+    const [contraseña, setContrasaeña] = useState("");
+
+    const handleChangeCorreo = (e) => {
+        setCorreo(e.target.value);
+    }
+
     return (
         <Container>
             <h1>Iniciar Sesion en All Comics</h1>
@@ -12,7 +20,7 @@ function Login() {
                         label="Correo Electronico"
                         className="mb-3"
                     >
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control value={correo} type="email" placeholder="Enter email" onChange={handleChangeCorreo}/>
                     </FloatingLabel>
                     <Form.Text className="text-muted">
                         No compartas tu correo electronico con personas no autorizadas
