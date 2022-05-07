@@ -5,14 +5,12 @@
  */
 package com.escom.ipn.allcomics.Repositorios;
 
-import com.escom.ipn.allcomics.Modelos.Usuarios;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  *
  * @author DEZKS
  */
-public interface RepositorioUsuarios extends MongoRepository<Usuarios, String>{
+public interface Inventario extends MongoRepository<Inventario, String>{
     
-    public Usuarios findByCorreo(String correo);
 }
