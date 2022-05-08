@@ -7,6 +7,7 @@ import ListaTiendas from "../Paginas/ListaTiendas";
 import RegistroUsuario from "../Paginas/RegistroUsuario";
 import RegistroComic from "../Paginas/RegistroComic";
 import { PaymentProvier } from "../Contextos/PaymentContext";
+import RegistroTienda from "../Paginas/RegistroTienda";
 
 function Rutas(props) {
     return (
@@ -19,6 +20,7 @@ function Rutas(props) {
                 <Route path="login" element={<Login/>}/>
                 <Route path="registro" element={<RegistroUsuario/>}/>
                 <Route path="carrito" element={<PaymentProvier><CarroCompra/></PaymentProvier>}/>
+                <Route path="tiendaRegistro" element={<RegistroTienda></RegistroTienda>}/>
             </Route>
         </Routes>
     );

@@ -20,6 +20,11 @@ function RegistroComic() {
         ApiPublic.cargarComic(data).then((response) => {
             console.log(response);
         })
+        setNombreComic("");
+        setSerie("");
+        setNumeroComic("");
+        setEditorial("");
+        setPortada("");
     }
     return (
         <Container>
