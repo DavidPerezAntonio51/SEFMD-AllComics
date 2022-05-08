@@ -9,7 +9,6 @@ import com.escom.ipn.allcomics.Modelos.Comics;
 import com.escom.ipn.allcomics.Servicios.ServicioComics;
 import java.io.IOException;
 import org.bson.BsonBinarySubType;
-import org.bson.conversions.Bson;
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

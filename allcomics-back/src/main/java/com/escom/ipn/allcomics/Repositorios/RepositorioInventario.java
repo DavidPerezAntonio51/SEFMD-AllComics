@@ -5,12 +5,13 @@
  */
 package com.escom.ipn.allcomics.Repositorios;
 
+import com.escom.ipn.allcomics.Modelos.Inventario;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  *
  * @author DEZKS
  */
-public interface Inventario extends MongoRepository<Inventario, String>{
+public interface RepositorioInventario extends MongoRepository<Inventario, String>{
     
 }
