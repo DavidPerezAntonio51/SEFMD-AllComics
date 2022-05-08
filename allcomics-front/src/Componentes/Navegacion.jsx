@@ -28,6 +28,7 @@ function Navegacion() {
                             placeholder="Búsqueda"
                             className="me-2"
                             aria-label="Search"
+                            autoComplete="yes"
                         />
                         <Button variant="outline-success">Buscar</Button>
                     </Form>

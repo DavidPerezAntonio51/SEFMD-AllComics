@@ -7,6 +7,7 @@ package com.escom.ipn.allcomics.Controladores;
 
 import com.escom.ipn.allcomics.Modelos.Comics;
 import com.escom.ipn.allcomics.Modelos.Inventario;
+import com.escom.ipn.allcomics.Servicios.ServicioComics;
 import com.escom.ipn.allcomics.Servicios.ServicioInventario;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +29,28 @@ public class ControladorPrincipal {
     @Autowired
     private ServicioInventario inventarioService;
     
-    @GetMapping("/comics")
-    public ResponseEntity<List<Inventario>> mostrarInventario(@RequestParam(name="page", defaultValue = "0") Integer page){
+    @Autowired
+    private ServicioComics comicsService;
+    
+    @GetMapping("/allcomics")
+    public ResponseEntity<List<Inventario>> mostrarTodosLosComics(@RequestParam(name="page", defaultValue = "0") Integer page){
         List<Inventario> pagina = inventarioService.obtenerPagina(page);
         System.out.println(inventarioService.obtenerTotalComics());
         return new ResponseEntity(pagina, HttpStatus.OK);
     }
     
+    @GetMapping("/comics")
+    public ResponseEntity<List<Comics>> muestraComicsEspecificos(@RequestParam String comic){
+        
+    }
+    
     @GetMapping("/totalcomics")
     public ResponseEntity<Integer> mostrarTotalComics(){
         return new ResponseEntity(inventarioService.obtenerTotalComics(), HttpStatus.OK);
+    }
+    
+    @GetMapping("/autocompletadocomics")
+    public ResponseEntity<List<String>> autocompletadoBusqueda(@RequestParam String busqueda){
+        return new ResponseEntity(comicsService.autocompletado(busqueda), HttpStatus.OK);
     }
 }
