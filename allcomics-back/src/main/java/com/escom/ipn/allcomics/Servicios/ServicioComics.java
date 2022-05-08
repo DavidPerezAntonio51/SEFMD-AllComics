@@ -7,6 +7,8 @@ package com.escom.ipn.allcomics.Servicios;
 
 import com.escom.ipn.allcomics.Modelos.Comics;
 import com.escom.ipn.allcomics.Repositorios.RepositorioComics;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,11 @@ public class ServicioComics {
     
     public Comics guardarNuevoComic(Comics comic){
         return comicsrepo.save(comic);
+    }
+    
+    public List<String> autocompletado(String regex){
+        List<String> nombres = new ArrayList();
+        comicsrepo.findByNombreLike(regex).forEach(comic -> {nombres.add(comic.getNombre());});
+        return nombres;
     }
 }
