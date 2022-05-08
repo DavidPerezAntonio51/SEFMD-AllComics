@@ -41,7 +41,7 @@ public class ControladorPrincipal {
     
     @GetMapping("/comics")
     public ResponseEntity<List<Comics>> muestraComicsEspecificos(@RequestParam String comic){
-        
+        return new ResponseEntity(HttpStatus.OK);
     }
     
     @GetMapping("/totalcomics")
