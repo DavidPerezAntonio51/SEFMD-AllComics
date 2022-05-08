@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import ApiPublic from "../Servicios/apiPublica";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function RegistroComic() {
     const [NombreComic, setNombreComic] = useState("");
@@ -8,8 +10,12 @@ function RegistroComic() {
     const [NumeroComic, setNumeroComic] = useState("");
     const [Editorial, setEditorial] = useState("");
     const [Portada, setPortada] = useState();
+    const MySwal =withReactContent(Swal) ;
 
     const enviarDatos = (e) => {
+        MySwal.fire(
+            'Registro exitoso'
+        )
         e.preventDefault();
         const data = new FormData();
         data.append("nombre",NombreComic);
