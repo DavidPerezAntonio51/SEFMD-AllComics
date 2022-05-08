@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import ApiPublic from "../Servicios/apiPublica";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function RegistroTienda() {
     const [NombreTienda, setNombreTienda] = useState("");
     const [Direccion, setDireccion] = useState("");
     const [RFC, setRFC] = useState("");
+    const MySwal =withReactContent(Swal) ;
 
     const enviarDatos = (e) => {
+        MySwal.fire(
+            'Registro exitoso'
+        )
         e.preventDefault();
         const data = new FormData();
         data.append("nombre",NombreTienda);
