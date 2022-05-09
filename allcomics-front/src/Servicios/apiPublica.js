@@ -12,10 +12,13 @@ const registrar = (datosParaEnviar) => {
 
 }
 
+const autocompletado = (params) => base.get("autocompletadocomics",{params});
+
 const cargarComic = (datosParaEnviar)=> base.post("upload/comic",datosParaEnviar,{headers:{'Content-Type':'mulipart/form-data'}});
 
 const ApiPublic = {
-    cargarComic
+    cargarComic,
+    autocompletado
 }
 
 export default ApiPublic;

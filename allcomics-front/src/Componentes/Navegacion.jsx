@@ -1,11 +1,41 @@
-import { useContext } from "react";
-import { Button, Col, Container, Form, FormControl, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
+import { useContext, useState } from "react";
+import Autosuggest from "react-autosuggest";
+import { Button, Col, Container, Form, FormControl, Nav, Navbar, NavDropdown, Row, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LoginContext from "../Contextos/LoginContext";
+import ApiPublic from "../Servicios/apiPublica";
+import Sugerencia from "./Navegacion/Sugerencia";
 
 
 function Navegacion() {
     const managelogin = useContext(LoginContext)
+    const [Sugerencias, setSugerencias] = useState([]);
+    const [valor, setvalor] = useState('');
+
+    const limpiarSugerencias = () => {
+        setSugerencias([]);
+    }
+
+    const obtenerValorSugerido = (sugerencia) => sugerencia
+
+    const onChange = (event, { newValue }) => {
+        setvalor(newValue)
+    };
+
+    const peticionSugerencias = ({value}) => {
+        const datos = new URLSearchParams();
+        datos.set("busqueda",value);
+        ApiPublic.autocompletado(datos)
+        .then(response=>setSugerencias(response.data))
+    }
+
+    const inputProps = {
+        placeholder: 'Buscar Comic',
+        value: valor,
+        onChange: onChange
+    };
+
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container fluid>
@@ -16,22 +46,25 @@ function Navegacion() {
                         </Col>
                     </Row>
                 </Navbar.Brand>
+                <Form className="d-flex">
+                    <Stack direction="horizontal" gap={3}>
+                        <Autosuggest
+                        suggestions={Sugerencias}
+                        onSuggestionsFetchRequested={peticionSugerencias}
+                        onSuggestionsClearRequested={limpiarSugerencias}
+                        getSuggestionValue={obtenerValorSugerido}
+                        renderSuggestion={Sugerencia}
+                        inputProps={inputProps}
+                    />
+                    <Button variant="outline-success">Buscar</Button>
+                    </Stack>
+                </Form>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="comics" >Lista de Comics</Nav.Link>
                         <Nav.Link as={Link} to="tiendas">Lista de Tiendas</Nav.Link>
                     </Nav>
-                    <Form className="d-flex">
-                        <FormControl
-                            type="search"
-                            placeholder="Búsqueda"
-                            className="me-2"
-                            aria-label="Search"
-                            autoComplete="yes"
-                        />
-                        <Button variant="outline-success">Buscar</Button>
-                    </Form>
                     <Nav>
                         {!managelogin.Loged
                             ?
