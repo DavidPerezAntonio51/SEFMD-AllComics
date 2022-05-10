@@ -20,11 +20,17 @@ const obtenerListaComics = (params)=> base.get("allcomics",{params});
 
 const totalComics = ()=> base.get("totalcomics")
 
+const buscar = (params)=> base.get("comics",{params});
+
+const paginasResultados = (params)=> base.get("busquedapaginas",{params});
+
 const ApiPublic = {
     cargarComic,
     autocompletado,
     obtenerListaComics,
-    totalComics
+    totalComics,
+    buscar,
+    paginasResultados
 }
 
 export default ApiPublic;

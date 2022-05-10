@@ -2,42 +2,84 @@ import { Badge, ListGroup, Col, Pagination, Spinner, Stack, Row, Container } fro
 import ApiPublic from "../Servicios/apiPublica";
 import { useEffect, useState } from "react";
 import "../Componentes/colores.css"
+import { useSearchParams } from "react-router-dom";
+
 
 function ListaComics() {
     const [ListaComics, setListaComics] = useState([]);
     const [ShowLoading, setShowLoading] = useState(true);
     const [ActivePage, setActivePage] = useState(1);
     const [Paginas, setPaginas] = useState([])
-    let items = [];
+    let [searchParams, setSearchParams] = useSearchParams();
     useEffect(() => {
-        ApiPublic.obtenerListaComics()
-            .then(response => {
-                console.log(response.data)
-                setListaComics(response.data)
-            })
-            .finally(e => {
-                setShowLoading(false);
-            })
-        ApiPublic.totalComics()
-            .then(response => {
-                console.log(response.data)
-                setPaginas(response.data)
-            })
+        console.log(searchParams.get("search"))
+        if (searchParams.get("search") === null) {
+            ApiPublic.obtenerListaComics()
+                .then(response => {
+                    console.log(response.data)
+                    setListaComics(response.data)
+                })
+                .finally(e => {
+                    setShowLoading(false);
+                })
+            ApiPublic.totalComics()
+                .then(response => {
+                    console.log(response.data)
+                    setPaginas(response.data)
+                })
+        } else {
+            ApiPublic.paginasResultados(searchParams)
+                .then(response => setPaginas(response.data))
+            ApiPublic.buscar(searchParams)
+                .then(response => setListaComics(response.data))
+                .finally(() => {
+                    setShowLoading(false)
+                })
+        }
+
     }, [])
     useEffect(() => {
         setListaComics([])
         setShowLoading(true)
-        const params = new URLSearchParams();
-        params.append("page", ActivePage - 1);
-        ApiPublic.obtenerListaComics(params)
-            .then(response => {
-                console.log(response.data)
-                setListaComics(response.data)
-            })
-            .finally(e => {
-                setShowLoading(false);
-            })
+        if (searchParams.get("search") === null) {
+            const params = new URLSearchParams();
+            params.append("page", ActivePage - 1);
+            ApiPublic.obtenerListaComics(params)
+                .then(response => {
+                    console.log(response.data)
+                    setListaComics(response.data)
+                })
+                .finally(e => {
+                    setShowLoading(false);
+                })
+        } else {
+            console.log("pagina comics")
+        }
     }, [ActivePage])
+    useEffect(() => {
+        setSearchParams({ page: ActivePage, search: searchParams.get('search') })
+        console.log(searchParams.get('page'));
+        console.log(searchParams.get('search'));
+        if (searchParams.get("search") !== null) {
+            setListaComics([])
+            setShowLoading(true)
+            setActivePage(1)
+            console.log("peticion de comics")
+        } else {
+            setActivePage(1)
+            const params = new URLSearchParams();
+            params.append("page", ActivePage - 1);
+            ApiPublic.obtenerListaComics(params)
+                .then(response => {
+                    console.log(response.data)
+                    setListaComics(response.data)
+                })
+                .finally(e => {
+                    setShowLoading(false);
+                })
+        }
+    }, [searchParams])
+
 
     const handlePage = (e) => {
         //console.log(e.active)
@@ -52,11 +94,11 @@ function ListaComics() {
                 {ListaComics.map((comic, index) => {
                     return (
                         <Row className="justify-content-md-center">
-                        <ListGroup.Item
-                            key={index}
-                            as="li"
-                            className="d-flex justify-content-between align-items-start"
-                        >
+                            <ListGroup.Item
+                                key={index}
+                                as="li"
+                                className="d-flex justify-content-between align-items-start"
+                            >
                                 <Col xs={2} md={2} lg={2}>
                                     <img src={"data:image/png;base64," + btoa(new Uint8Array(comic.portada.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}
                                         className="img-thumbnail"
@@ -67,11 +109,11 @@ function ListaComics() {
                                     <div className="fw-bold">{comic.nombre} #{comic.numerocomic}</div>
                                     Serie: {comic.serie}
                                 </Col>
-                                    <Badge bg="primary text-wrap" pill >
-                                        Ver opciones en Existencia
-                                    </Badge>
-                        </ListGroup.Item>
-                            </Row>
+                                <Badge bg="primary text-wrap" pill >
+                                    Ver opciones en Existencia
+                                </Badge>
+                            </ListGroup.Item>
+                        </Row>
                     )
                 })}
                 {ShowLoading

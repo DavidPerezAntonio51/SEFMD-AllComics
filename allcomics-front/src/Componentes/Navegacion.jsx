@@ -9,12 +9,13 @@ import LogoAC from "../Assests/LogoAC.png"
 import "./Navegacion/nav.css"
 import "../Componentes/colores.css"
 import { Hint } from "react-autocomplete-hint";
-
+import { useNavigate } from "react-router-dom";
 
 function Navegacion() {
     const managelogin = useContext(LoginContext)
     const [Sugerencias, setSugerencias] = useState([]);
     const [valor, setvalor] = useState('');
+    const navigate = useNavigate();
 
     const onChange = (event) => {
         setvalor(event.target.value)
@@ -30,6 +31,13 @@ function Navegacion() {
         }
     }, [valor])
 
+    const handleBarraBusqueda = (e)=>{
+        if(e.key==='Enter' && valor!=''){
+            navigate('/comics?search='+valor);
+        }else if(e.key==='Enter'){
+            navigate('/comics');
+        }
+    }
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
@@ -48,6 +56,7 @@ function Navegacion() {
                         <input
                             value={valor}
                             onChange={onChange}
+                            onKeyDown={handleBarraBusqueda}
                         />
                     </Hint>
                     <Button variant="outline-registro">Buscar</Button>
@@ -55,7 +64,7 @@ function Navegacion() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="comics" >Lista de Comics</Nav.Link>
+                        <Nav.Link as={Link} to="comicslista" >Lista de Comics</Nav.Link>
                         <Nav.Link as={Link} to="tiendas">Lista de Tiendas</Nav.Link>
                     </Nav>
                     <Nav>

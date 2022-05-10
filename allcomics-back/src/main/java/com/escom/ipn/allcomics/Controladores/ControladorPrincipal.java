@@ -43,8 +43,19 @@ public class ControladorPrincipal {
     }
     
     @GetMapping("/comics")
-    public ResponseEntity<List<Comics>> muestraComicsEspecificos(@RequestParam String comic){
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity<List<Comics>> muestraComicsEspecificos(@RequestParam String search, @RequestParam(name="page", defaultValue = "0") Integer page){
+        List<Comics> resultadoBusqueda = comicsService.comicsBusqueda(search, page);
+        return new ResponseEntity(resultadoBusqueda,HttpStatus.OK);
+    }
+    
+    @GetMapping("/busquedaPaginas")
+    public ResponseEntity<List<Integer>> paginasDeBusqueda(@RequestParam String search){
+        Integer totalEncontrado = comicsService.obtenerPaginasBusquedas(search);
+        List<Integer> paginas = new ArrayList();
+        for(int i = 1; i<=Math.ceil(totalEncontrado/10.0); i++){
+            paginas.add(i);
+        }
+        return new ResponseEntity(paginas,HttpStatus.OK);
     }
     
     @GetMapping("/totalcomics")

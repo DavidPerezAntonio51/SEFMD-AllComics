@@ -7,6 +7,7 @@ package com.escom.ipn.allcomics.Repositorios;
 
 import com.escom.ipn.allcomics.Modelos.Comics;
 import java.util.List;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
@@ -17,6 +18,8 @@ public interface RepositorioComics extends MongoRepository<Comics, String>{
     
     
     public List<Comics> findByNombreRegex(String regex);
+    
+    public List<Comics> findByNombreRegex(String regex, Pageable page);
     
     public List<Comics> findByNombre(String comic);
     

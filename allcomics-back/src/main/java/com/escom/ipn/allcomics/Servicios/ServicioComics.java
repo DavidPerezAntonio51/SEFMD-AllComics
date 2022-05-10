@@ -35,6 +35,15 @@ public class ServicioComics {
         return nombres;
     }
     
+    public Integer obtenerPaginasBusquedas(String regex){
+        return comicsrepo.findByNombreRegex(regex).size();
+    }
+    
+    public List<Comics> comicsBusqueda(String regex, Integer page){
+        Pageable pagewith_10_elements = PageRequest.of(page, 10);
+        return comicsrepo.findByNombreRegex(regex, pagewith_10_elements);
+    }
+    
     public List<Comics> obtenerPagina(Integer numeroPagina){
         Pageable pagewith_15_elements = PageRequest.of(numeroPagina, 15);
         return comicsrepo.findAll(pagewith_15_elements).getContent();
