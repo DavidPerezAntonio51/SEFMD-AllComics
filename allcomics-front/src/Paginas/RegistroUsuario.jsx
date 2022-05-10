@@ -1,6 +1,6 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png";
-import Layout1 from "../Assests/Layout1.png"
+import Aviso_icon from "../Assests/Aviso_icon.png";
+import login_icon from "../Assests/login_icon.png"
 
 function RegistroUsuario() {
     return (
@@ -56,13 +56,13 @@ function RegistroUsuario() {
                     <Row>
                         <img
                             className="rounded mx-auto d-block w-100"
-                            src={Layout1}
+                            src={login_icon}
                         />
                     </Row>
                     <Row>
                         <img
                             className="rounded mx-auto d-block w-100"
-                            src={Carrusel_Layout1}
+                            src={Aviso_icon}
                             alt="Wellcome to ALLComics"
                         />
                     </Row>
