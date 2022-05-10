@@ -1,4 +1,4 @@
-import { Badge, ListGroup, Col, Pagination, Spinner, Stack, Row } from "react-bootstrap";
+import { Badge, ListGroup, Col, Pagination, Spinner, Stack, Row, Container } from "react-bootstrap";
 import ApiPublic from "../Servicios/apiPublica";
 import { useEffect, useState } from "react";
 import "../Componentes/colores.css"
@@ -47,7 +47,7 @@ function ListaComics() {
 
 
     return (
-        <>
+        <Container fluid>
             <ListGroup as="ol" numbered>
                 {ListaComics.map((comic, index) => {
                     return (
@@ -63,15 +63,13 @@ function ListaComics() {
                                         width={200}
                                     />
                                 </Col>
-                                <Col xs="auto" md="auto" lg="auto">
+                                <Col xs={9} md={9} lg={9} className="text-align-left text-wrap">
                                     <div className="fw-bold">{comic.nombre} #{comic.numerocomic}</div>
                                     Serie: {comic.serie}
                                 </Col>
-                                <Col xs="auto" md="auto" lg="auto">
-                                    <Badge bg="primary" pill>
+                                    <Badge bg="primary text-wrap" pill >
                                         Ver opciones en Existencia
                                     </Badge>
-                                </Col>
                         </ListGroup.Item>
                             </Row>
                     )
@@ -100,7 +98,7 @@ function ListaComics() {
                         )
                     })}</Pagination>
             </>
-        </>
+        </Container>
     );
 }
 
