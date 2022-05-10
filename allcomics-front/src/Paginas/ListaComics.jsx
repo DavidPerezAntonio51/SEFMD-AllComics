@@ -1,9 +1,7 @@
 import { Badge, Col, ListGroup, Row, Spinner, Stack } from "react-bootstrap";
-import SpiderMan_2099 from "../Assests/SpiderMan_2099.jpg"
-import Halo from "../Assests/Halo.jpg"
-import Batman from "../Assests/Batman.jpg"
 import ApiPublic from "../Servicios/apiPublica";
 import { useEffect, useState } from "react";
+import "../Componentes/colores.css"
 
 function ListaComics() {
     const [ListaComics, setListaComics] = useState([]);
@@ -51,9 +49,9 @@ function ListaComics() {
                     <Col></Col>
                     <Col md={{ span: 4, offset: 3 }}>
                         <Stack direction="horizontal" gap={3} className="ms-2 me-auto " >
-                            <Spinner animation="grow" variant="primary" />
                             <Spinner animation="grow" variant="secondary" />
-                            <Spinner animation="grow" variant="success" />
+                            <Spinner animation="grow" variant="primary" />
+                            <Spinner animation="grow" variant="purple" />
                         </Stack>
                     </Col>
                     <Col></Col>

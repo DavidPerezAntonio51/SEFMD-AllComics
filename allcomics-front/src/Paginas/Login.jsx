@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Container, FloatingLabel, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../Componentes/colores.css"
 
 function Login() {
     const [correo , setCorreo] = useState("");
@@ -38,7 +39,7 @@ function Login() {
                         <Form.Control type="password" placeholder="Password" />
                     </FloatingLabel>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="registro" type="submit">
                     Iniciar Sesion
                 </Button>
                 ¿Aun no tienes una cuenta? <Link to={"/registro"}>¡Registrate!</Link>

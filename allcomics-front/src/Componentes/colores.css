@@ -1,0 +1,21 @@
+.text-purple{
+        --bs-text-opacity: 1;
+        color:purple !important;
+
+}
+
+.btn-registro{
+    background-color: #7066e0;
+        color: white;
+    
+}
+.btn-outline-registro {
+    color: #7066e0;
+    border-color: #7066e0;
+}
+.btn-outline-registro:hover {
+    color: white;
+    border-color: #7066e0;
+    background-color:#7066e0 ;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

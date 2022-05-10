@@ -3,6 +3,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import ApiPublic from "../Servicios/apiPublica";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import "../Componentes/colores.css"
 
 function RegistroTienda() {
     const [NombreTienda, setNombreTienda] = useState("");
@@ -43,7 +44,7 @@ function RegistroTienda() {
                 <Form.Control type="text" placeholder="Ingresa el RFC de la tienda" onChange={(e)=>setRFC(e.target.value)} value={RFC}/>
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={enviarDatos}>
+            <Button variant="registro" type="submit" onClick={enviarDatos}>
                 Registrar Tienda
             </Button>
         </Form>

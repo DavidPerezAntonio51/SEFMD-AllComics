@@ -1,6 +1,7 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Aviso_icon from "../Assests/Aviso_icon.png";
 import login_icon from "../Assests/login_icon.png"
+import "../Componentes/colores.css"
 
 function RegistroUsuario() {
     return (
@@ -47,7 +48,7 @@ function RegistroUsuario() {
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Acepto los terminos y condiciones del registro" />
                         </Form.Group>
-                        <Button variant="primary" type="submit">
+                        <Button variant="registro" type="submit">
                             Registrarte
                         </Button>
                     </Form>

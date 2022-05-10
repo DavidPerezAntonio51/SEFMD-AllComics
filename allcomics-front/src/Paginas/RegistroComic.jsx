@@ -3,6 +3,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import ApiPublic from "../Servicios/apiPublica";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import "../Componentes/colores.css"
 
 function RegistroComic() {
     const [NombreComic, setNombreComic] = useState("");
@@ -57,7 +58,7 @@ function RegistroComic() {
                     <Form.Control type="file" size="sm" accept="image/*" onChange={(e)=>setPortada(e.target.files[0])}/>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={enviarDatos}>
+                <Button variant="registro" type="submit" onClick={enviarDatos}>
                     Ingresar Comic
                 </Button>
             </Form>

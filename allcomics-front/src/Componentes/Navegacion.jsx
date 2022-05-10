@@ -7,6 +7,7 @@ import ApiPublic from "../Servicios/apiPublica";
 import Sugerencia from "./Navegacion/Sugerencia";
 import LogoAC from "../Assests/LogoAC.png"
 import "./Navegacion/nav.css"
+import "../Componentes/colores.css"
 
 
 function Navegacion() {
@@ -62,7 +63,7 @@ function Navegacion() {
                         renderSuggestion={Sugerencia}
                         inputProps={inputProps}
                     />
-                    <Button variant="outline-success">Buscar</Button>
+                    <Button variant="outline-registro">Buscar</Button>
                     </Stack>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
