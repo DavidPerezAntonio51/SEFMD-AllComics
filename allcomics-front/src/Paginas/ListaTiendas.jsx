@@ -1,112 +1,97 @@
 import { Badge, Carousel, Col, Container, ListGroup, Row, Table } from "react-bootstrap";
 import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png";
-import Layout1 from "../Assests/Layout1.png"
-
-
+import Layout4 from "../Assests/Layout4.png"
+import Tiendas_icon from "../Assests/Tiendas_icon.png"
+import tc_icon1 from "../Assests/tc_icon1.jpg"
+import tc_icon2 from "../Assests/tc_icon2.jpg"
+import tc_icon3 from "../Assests/tc_icon3.jpg"
+import tc_icon4 from "../Assests/tc_icon4.jpg"
+import tc_icon5 from "../Assests/tc_icon5.png"
+import tc_icon6 from "../Assests/tc_icon6.jpg"
 function ListaTiendas() {
     return (
-        <Container>
-            <style type="text/css">
-                {`
-        .text-purple{
-          color:purple;
-      }
-        `}
-            </style>
+        <>
             <Row>
                 <Col></Col>
-                <Col xs lg="7">
-                    <Carousel fade>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={Carrusel_Layout1}
-                                alt="Wellcome to ALLComics"
-                            />
-                            <Carousel.Caption>
-
-                                <p class="text-muted">Tienda de comics no autorizada</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={Carrusel_Layout1}
-                                alt="Second slide"
-                            />
-
-                            <Carousel.Caption>
-                                <h3 className="text-purple">Coming Soon...</h3>
-                                <p className="text-purple">Estaremos subiendo contenido proximamente.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block w-100"
-                                src={Carrusel_Layout1}
-                                alt="Third slide"
-                            />
-
-                            <Carousel.Caption>
-                                <h3 className="text-purple">Coming Soon...</h3>
-                                <p className="text-purple">Estaremos subiendo contenido proximamente.</p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    </Carousel>
+                <Col>
+                    <img
+                        style={{ width: 1150, height: 290, marginBottom: -40 }}
+                        src={Tiendas_icon} />
                 </Col>
                 <Col></Col>
             </Row>
+            <Container>
+                <Row>
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                            <tr>
+                                <th className="text-center"></th>
+                                <th className="text-center">Nombre de la Tienda</th>
+                                <th className="text-center">Dirección</th>
+                                <th className="text-center">Horario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img
+                                    style={{ width: 80, height: 80, marginBottom: -10 }}
+                                    src={tc_icon1} /></td>
+                                <td>Comics Mexico</td>
+                                <td>Av. Revolución 50, Escandón I Secc, Miguel Hidalgo, 11800 Ciudad de México, CDMX</td>
+                                <td>Lun-Sab <br/>11:00hrs-20:00hrs </td>
+                            </tr>
+                            <tr>
+                                <td><img
+                                    style={{ width: 80, height: 80, marginBottom: -10 }}
+                                    src={tc_icon2} /></td>
+                                <td>Fantástico Comics</td>
+                                <td>Félix Cuevas 835, Col del Valle Sur, Benito Juárez, 03100 Ciudad de México, CDMX</td>
+                                <td>Lun-Dom <br/>10:00hrs-20:30hrs</td>
+                            </tr>
+                            <tr>
+                                <td><img
+                                    style={{ width: 80, height: 80, marginBottom: -10 }}
+                                    src={tc_icon3} /></td>
+                                <td>Xanddar Comics</td>
+                                <td>Balderas 12 Piso 3, Despacho 301, Cuauhtémoc, 06000 Ciudad de México, CDMX</td>
+                                <td>Lun-Sab <br/>10:00hrs-17:00hrs</td>
+                            </tr>
+                            <tr>
+                                <td><img
+                                    style={{ width: 80, height: 80, marginBottom: -10 }}
+                                    src={tc_icon4} /></td>
+                                <td>Unlimited Edition comics</td>
+                                <td>C. 64 518-512, Centro, 97000 Mérida, Yuc</td>
+                                <td>Lun-Dom <br/>10:00hrs-20:00hrs</td>
+                            </tr>
+                            <tr>
+                                <td><img
+                                    style={{ width: 80, height: 80, marginBottom: -10 }}
+                                    src={tc_icon5} /></td>
+                                <td>El Quinto Mundo</td>
+                                <td>Prol. P.º de la Reforma 215-interior 505, Santa Fe, Bosques de las Lomas, Álvaro Obregón, 01330 Ciudad de México, CDMX</td>
+                                <td>Lun-Dom <br/>12:00hrs-20:00hrs</td>
+                            </tr>
+                            <tr>
+                                <td><img
+                                    style={{ width: 80, height: 80, marginBottom: -10 }}
+                                    src={tc_icon6} /></td>
+                                <td>Xibalbá Store</td>
+                                <td>Entrega a domicilio</td>
+                                <td>Lun-Sab <br/>11:00hrs-17:00hrs</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </Row>
+                
+           
+            </Container>
             <Row>
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th className="text-center">#</th>
-                            <th className="text-center">Nombre de la Tienda</th>
-                            <th className="text-center">Dirección</th>
-                            <th className="text-center">Horario</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Comics Batarang</td>
-                            <td>Av. Pantitlán 11, Col. Porvenir, 57430 Nezahualcóyotl, Méx.</td>
-                            <td>15:00-20:00</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Fantástico Comics</td>
-                            <td>Félix Cuevas 835, Col del Valle Sur, Benito Juárez, 03100 Ciudad de México, CDMX</td>
-                            <td>10:00-20:30</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Global Comics Noveno Arte</td>
-                            <td>San Luis Potosí 109, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX</td>
-                            <td>10:00-17:00</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Mx Prados</td>
-                            <td>Blvrd Prados de Aragón, Prados de Aragon, 57179 Nezahualcóyotl, Méx.</td>
-                            <td>12:00-21:00</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Panini Oceanía</td>
-                            <td>Av. del Peñón 355, Moctezuma 2da Secc, Venustiano Carranza, 15530 Ciudad de México, CDMX</td>
-                            <td>11:00-20:00</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>PHOENIX COMICS</td>
-                            <td>Plaza Río Local Q-13 Q-14, Cto Interior Avenida Río Churubusco 775, INFONAVIT Iztacalco, Iztacalco, 08900 Ciudad de México, CDMX</td>
-                            <td>09:00-20:00</td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </Row>
-        </Container>
+                <img
+           className="d-block w-100"
+            src={Layout4} />
+                </Row>
+        </>
     );
 }
 
