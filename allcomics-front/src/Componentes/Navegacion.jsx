@@ -43,7 +43,7 @@ function Navegacion() {
 
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <Row xs={4}>
