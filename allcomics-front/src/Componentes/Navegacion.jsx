@@ -44,7 +44,7 @@ function Navegacion() {
                     <Row xs={4}>
                         <Col>
                             <img
-                                style={{ width: 140, height: 90, marginBottom: -20 }}
+                                style={{ width: 140, height: 90, marginBottom: -10 }}
                                 src={LogoAC} />                        
                         </Col>
                     </Row>
