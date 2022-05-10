@@ -5,9 +5,19 @@ import MetodoCompra from "../Componentes/CarritoDeCompra/MetodoCompra";
 import CheckMetodoPago from "../Componentes/CarritoDeCompra/CheckMetodoPago";
 import { useContext } from "react";
 import PaymentContext from "../Contextos/PaymentContext";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
 
 function CarroCompra() {
     const paymentContext = useContext(PaymentContext);
+    const MySwal = withReactContent(Swal);
+
+    const Pago = (e) => {
+
+        MySwal.fire(
+            'Pago exitoso'
+        )
+    }
     return (
         <Container>
             <style type="text/css">
@@ -125,7 +135,7 @@ function CarroCompra() {
                             </Container>
                             : ""
                         }
-                        <Button variant="primary">Realizar Pago</Button>{' '}
+                        <Button variant="registro" onClick={Pago}>Realizar Pago</Button>{' '}
                         <Button variant="cancel">Vaciar Carrito</Button>
                     </Stack>
                 </Col>
