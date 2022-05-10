@@ -12,13 +12,9 @@ function ListaTiendas() {
     return (
         <>
             <Row>
-                <Col></Col>
-                <Col>
                     <img
-                        style={{ width: 1150, height: 290, marginBottom: -40 }}
+                        className="d-block w-100"
                         src={Tiendas_icon} />
-                </Col>
-                <Col></Col>
             </Row>
             <Container>
                 <Row>
