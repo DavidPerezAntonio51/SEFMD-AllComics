@@ -39,13 +39,17 @@ public class ControladorCargaComics {
             @RequestParam("serie") String serie,
             @RequestParam("numerocomic") Integer numerocomic,
             @RequestParam("editorial") String editorial,
-            @RequestParam("portada") MultipartFile portada
+            @RequestParam("portada") MultipartFile portada,
+            @RequestParam("tipodeportada") String tipodeportada,
+            @RequestParam("descripcion") String descripcion
     )throws IOException{
         Comics comic = new Comics();
         comic.setNombre(nombre);
         comic.setNumerocomic(numerocomic);
         comic.setEditorial(editorial);
         comic.setSerie(serie);
+        comic.setTipodeportada(tipodeportada);
+        comic.setDescripcion(descripcion);
         comic.setPortada(new Binary(BsonBinarySubType.BINARY, portada.getBytes()));
         comic = comicsService.guardarNuevoComic(comic);
         return new ResponseEntity(comic.getId(),HttpStatus.CREATED);
