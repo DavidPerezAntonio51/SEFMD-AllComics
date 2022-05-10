@@ -28,7 +28,7 @@ function ListaComics() {
         setListaComics([])
         setShowLoading(true)
         const params = new URLSearchParams();
-        params.append("page", ActivePage-1);
+        params.append("page", ActivePage - 1);
         ApiPublic.obtenerListaComics(params)
             .then(response => {
                 console.log(response.data)
@@ -51,25 +51,29 @@ function ListaComics() {
             <ListGroup as="ol" numbered>
                 {ListaComics.map((comic, index) => {
                     return (
+                        <Row className="justify-content-md-center">
                         <ListGroup.Item
                             key={index}
                             as="li"
                             className="d-flex justify-content-between align-items-start"
                         >
-                            <div>
-                                <img src={"data:image/png;base64," + btoa(new Uint8Array(comic.portada.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}
-                                    className="img-thumbnail"
-                                    width={100}
-                                />
-                            </div>
-                            <div className="ms-2 me-auto">
-                                <div className="fw-bold">{comic.nombre} #{comic.numerocomic}</div>
-                                Serie: {comic.serie}
-                            </div>
-                            <Badge bg="primary" pill>
-                                Ver opciones en Existencia
-                            </Badge>
+                                <Col xs={2} md={2} lg={2}>
+                                    <img src={"data:image/png;base64," + btoa(new Uint8Array(comic.portada.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}
+                                        className="img-thumbnail"
+                                        width={200}
+                                    />
+                                </Col>
+                                <Col xs="auto" md="auto" lg="auto">
+                                    <div className="fw-bold">{comic.nombre} #{comic.numerocomic}</div>
+                                    Serie: {comic.serie}
+                                </Col>
+                                <Col xs="auto" md="auto" lg="auto">
+                                    <Badge bg="primary" pill>
+                                        Ver opciones en Existencia
+                                    </Badge>
+                                </Col>
                         </ListGroup.Item>
+                            </Row>
                     )
                 })}
                 {ShowLoading
