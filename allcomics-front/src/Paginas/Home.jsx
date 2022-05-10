@@ -6,7 +6,7 @@ import Layout1 from "../Assests/Layout1.png"
 function Home(props) {
   return (
 
-    <>
+    <Container fluid>
       <Row>
         <Col >
           <img
@@ -65,7 +65,7 @@ function Home(props) {
         </h1>
       </Row>
       <Row></Row>
-    </>
+    </Container>
   );
 }
 
