@@ -1,4 +1,4 @@
-import { Badge, ListGroup } from "react-bootstrap";
+import { Badge, ListGroup, Spinner, Stack } from "react-bootstrap";
 import SpiderMan_2099 from "../Assests/SpiderMan_2099.jpg"
 import Halo from "../Assests/Halo.jpg"
 import Batman from "../Assests/Batman.jpg"
@@ -7,11 +7,15 @@ import { useEffect, useState } from "react";
 
 function ListaComics() {
     const [ListaComics, setListaComics] = useState([]);
+    const [ShowLoading, setShowLoading] = useState(true)
     let tumb;
     useEffect(() => {
         ApiPublic.obtenerListaComics().then(response => {
             console.log(response.data)
             setListaComics(response.data)
+        })
+            .finally(e => {
+                setShowLoading(false);
             })
     }, [])
 
@@ -26,7 +30,7 @@ function ListaComics() {
                         className="d-flex justify-content-between align-items-start"
                     >
                         <div>
-                            <img src={"data:image/png;base64,"+btoa(new Uint8Array(comic.portada.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}
+                            <img src={"data:image/png;base64," + btoa(new Uint8Array(comic.portada.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}
                                 className="img-thumbnail"
                                 width={75}
                             />
@@ -41,6 +45,15 @@ function ListaComics() {
                     </ListGroup.Item>
                 )
             })}
+            {ShowLoading
+                ?
+                <Stack direction="horizontal" gap={3} className="ms-2 me-auto">
+                    <Spinner animation="grow" variant="primary" />
+                    <Spinner animation="grow" variant="secondary" />
+                    <Spinner animation="grow" variant="success" />
+                </Stack>
+                : ""
+            }
         </ListGroup>
     );
 }

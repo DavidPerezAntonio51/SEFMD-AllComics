@@ -43,7 +43,7 @@ function Navegacion() {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container fluid>
+            <Container>
                 <Navbar.Brand as={Link} to="/">
                     <Row xs={4}>
                         <Col>
@@ -53,7 +53,6 @@ function Navegacion() {
                         </Col>
                     </Row>
                 </Navbar.Brand>
-                <Form>
                     <Stack direction="horizontal" gap={3}>
                         <Autosuggest
                         suggestions={Sugerencias}
@@ -65,7 +64,6 @@ function Navegacion() {
                     />
                     <Button variant="outline-success">Buscar</Button>
                     </Stack>
-                </Form>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
