@@ -1,4 +1,4 @@
-import { Badge, ListGroup, Spinner, Stack } from "react-bootstrap";
+import { Badge, Col, ListGroup, Row, Spinner, Stack } from "react-bootstrap";
 import SpiderMan_2099 from "../Assests/SpiderMan_2099.jpg"
 import Halo from "../Assests/Halo.jpg"
 import Batman from "../Assests/Batman.jpg"
@@ -32,7 +32,7 @@ function ListaComics() {
                         <div>
                             <img src={"data:image/png;base64," + btoa(new Uint8Array(comic.portada.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}
                                 className="img-thumbnail"
-                                width={75}
+                                width={100}
                             />
                         </div>
                         <div className="ms-2 me-auto">
@@ -47,11 +47,17 @@ function ListaComics() {
             })}
             {ShowLoading
                 ?
-                <Stack direction="horizontal" gap={3} className="ms-2 me-auto">
-                    <Spinner animation="grow" variant="primary" />
-                    <Spinner animation="grow" variant="secondary" />
-                    <Spinner animation="grow" variant="success" />
-                </Stack>
+                <Row>
+                    <Col></Col>
+                    <Col md={{ span: 4, offset: 3 }}>
+                        <Stack direction="horizontal" gap={3} className="ms-2 me-auto " >
+                            <Spinner animation="grow" variant="primary" />
+                            <Spinner animation="grow" variant="secondary" />
+                            <Spinner animation="grow" variant="success" />
+                        </Stack>
+                    </Col>
+                    <Col></Col>
+                </Row>
                 : ""
             }
         </ListGroup>
