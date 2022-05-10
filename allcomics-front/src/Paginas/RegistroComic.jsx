@@ -11,6 +11,8 @@ function RegistroComic() {
     const [NumeroComic, setNumeroComic] = useState("");
     const [Editorial, setEditorial] = useState("");
     const [Portada, setPortada] = useState();
+    const [TipodePortada, setTipodePortada] = useState();
+    const [Descripcion, setDescripción] = useState();
     const MySwal =withReactContent(Swal) ;
 
     const enviarDatos = (e) => {
@@ -23,6 +25,8 @@ function RegistroComic() {
         data.append("serie",Serie);
         data.append("numerocomic",NumeroComic);
         data.append("editorial",Editorial);
+        data.append("tipodeportada",TipodePortada);
+        data.append("descripción",Descripcion);
         data.append("portada",Portada);
         ApiPublic.cargarComic(data).then((response) => {
             console.log(response);
@@ -31,6 +35,8 @@ function RegistroComic() {
         setSerie("");
         setNumeroComic("");
         setEditorial("");
+        setTipodePortada("");
+        setDescripción("");
         setPortada("");
     }
     return (
@@ -51,6 +57,14 @@ function RegistroComic() {
                 <Form.Group className="mb-3" controlId="formBasicEditorialC">
                     <Form.Label>Editorial</Form.Label>
                     <Form.Control type="text" placeholder="Ingresa la editorial del comic" onChange={(e)=>setEditorial(e.target.value)} value={Editorial}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicTipoPortada">
+                    <Form.Label>Tipo de portada</Form.Label>
+                    <Form.Control type="text" placeholder="Ingresa el tipo de pórtada" onChange={(e)=>setTipodePortada(e.target.value)} value={Editorial}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicDescripcionC">
+                    <Form.Label>Descripción</Form.Label>
+                    <Form.Control type="text" placeholder="Ingresa la descripción del comic" onChange={(e)=>setDescripción(e.target.value)} value={Editorial}/>
                 </Form.Group>
 
                 <Form.Group controlId="formImagenComic" className="mb-3">

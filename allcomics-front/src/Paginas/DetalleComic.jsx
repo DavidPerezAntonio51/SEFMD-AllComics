@@ -3,11 +3,11 @@ import SpiderMan_2099 from "../Assests/SpiderMan_2099.jpg"
 
 function DetalleComic() {
     return (
-        <Container>
+        <Container fluid>
             <Row>
-                <Col>
+                <Col md="auto">
                     <img src={SpiderMan_2099}
-                       className="padding"
+                       className="img-fluid rounded mx-auto"
                     />
                 </Col>
                 <Col>
@@ -74,6 +74,9 @@ function DetalleComic() {
 
 
                 </Col>
+            </Row>
+            <Row>
+                <div></div>
             </Row>
         </Container >
     );
