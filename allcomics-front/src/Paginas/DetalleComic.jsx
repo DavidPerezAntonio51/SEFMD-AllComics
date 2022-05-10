@@ -26,43 +26,30 @@ function DetalleComic() {
                     <p className="text-muted text-center">What is Lorem Ipsum?
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <p className="p-2 mb-2 bg-dark text-white text-center">Editorial</p>
-                    <p className="text-muted text-center">Editorial VID</p>
+                    <p className="text-muted text-center">Panini Comics</p>
                     <p className="p-2 mb-2 bg-dark text-white text-center">Disponibilidad</p>
                     <Col>
                         <Table striped bordered hover>
                             <thead>
                                 <tr>
-                                    <th>Tienda</th>
-{/*                                     <th>Cantidad</th>
-                                    <th>Precio</th> */}
+                                    <th colSpan={2}>Tienda</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Comics Mexico</td>
-                                    <td>Av. Revolución 50, Escandón I Secc, Miguel Hidalgo, 11800 Ciudad de México, CDMX</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td colSpan={2}>Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
+
+
                             </tbody>
+
                         </Table>
                     </Col>
                     <Col>
                         <Form.Select aria-label="Default select example">
-                            <option>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option>Seleccione una opcion de compra</option>
+                            <option value="1">Comics Mexico        /       5pz Disponibles        /                     $129.00</option>
+                            <option value="2">Xanddar Comics       /       2pz Disponibles        /                     $169.00</option>
+                            <option value="3">Xibalbá Store        /       2pz Disponibles        /                     $130.00</option>
                         </Form.Select>
                     </Col>
                     <p className="p-2 mb-2 bg-dark text-white text-center">Agregar al carrito de compra</p>
