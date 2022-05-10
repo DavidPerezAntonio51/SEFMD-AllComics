@@ -33,7 +33,7 @@ public class Inventario {
     private String tiendaId;
     @Getter
     @Setter
-    private String cantidad;
+    private Integer cantidad;
     @Getter
     @Setter
     private String precio;
