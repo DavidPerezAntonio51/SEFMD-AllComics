@@ -2,64 +2,45 @@ import { Badge, ListGroup } from "react-bootstrap";
 import SpiderMan_2099 from "../Assests/SpiderMan_2099.jpg"
 import Halo from "../Assests/Halo.jpg"
 import Batman from "../Assests/Batman.jpg"
+import ApiPublic from "../Servicios/apiPublica";
+import { useEffect, useState } from "react";
 
 function ListaComics() {
+    const [ListaComics, setListaComics] = useState([]);
+    let tumb;
+    useEffect(() => {
+        ApiPublic.obtenerListaComics().then(response => {
+            console.log(response.data)
+            setListaComics(response.data)
+            })
+    }, [])
+
+
     return (
         <ListGroup as="ol" numbered>
-            <ListGroup.Item
-                as="li"
-                className="d-flex justify-content-between align-items-start"
-            >
-                <div>
-                    <img src={SpiderMan_2099}
-                        className="img-thumbnail"
-                        width={150}
-                    />
-                </div>
-                <div className="ms-2 me-auto">
-                    <div className="fw-bold">Comic #1</div>
-                    Descripción breve del comic seleccionado y que se encuentre dentro del carrito de compra
-                </div>
-                <Badge bg="primary" pill>
-                    $ 194.00 MXN
-                </Badge>
-            </ListGroup.Item>
-            <ListGroup.Item
-                as="li"
-                className="d-flex justify-content-between align-items-start"
-            >
-                <div>
-                    <img src={Halo}
-                        className="img-thumbnail"
-                        width={150}
-                    />
-                </div>
-                <div className="ms-2 me-auto">
-                    <div className="fw-bold">Comic #2</div>
-                    Descripción breve del comic 2 seleccionado y que se encuentre dentro del carrito de compra
-                </div>
-                <Badge bg="primary" pill>
-                    $ 145.00 MXN
-                </Badge>
-            </ListGroup.Item>
-            <ListGroup.Item
-                as="li"
-                className="d-flex justify-content-between align-items-start"
-            >
-                <div>
-                    <img src={Batman}
-                        className="img-thumbnail"
-                        width={150}
-                    />
-                </div>
-                <div className="ms-2 me-auto">
-                    <div className="fw-bold">Comic #3</div>
-                    Descripción breve del comic 3 seleccionado y que se encuentre dentro del carrito de compra
-                </div>
-                <Badge bg="primary" pill>
-                    $99.00 MXN
-                </Badge>
-            </ListGroup.Item>
+            {ListaComics.map((comic, index) => {
+                return (
+                    <ListGroup.Item
+                        key={index}
+                        as="li"
+                        className="d-flex justify-content-between align-items-start"
+                    >
+                        <div>
+                            <img src={"data:image/png;base64,"+btoa(new Uint8Array(comic.portada.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))}
+                                className="img-thumbnail"
+                                width={75}
+                            />
+                        </div>
+                        <div className="ms-2 me-auto">
+                            <div className="fw-bold">{comic.nombre} #{comic.numerocomic}</div>
+                            Serie: {comic.serie}
+                        </div>
+                        <Badge bg="primary" pill>
+                            Ver opciones en Existencia
+                        </Badge>
+                    </ListGroup.Item>
+                )
+            })}
         </ListGroup>
     );
 }

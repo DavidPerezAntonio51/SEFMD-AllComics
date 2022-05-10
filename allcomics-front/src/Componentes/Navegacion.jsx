@@ -6,6 +6,7 @@ import LoginContext from "../Contextos/LoginContext";
 import ApiPublic from "../Servicios/apiPublica";
 import Sugerencia from "./Navegacion/Sugerencia";
 import LogoAC from "../Assests/LogoAC.png"
+import "./Navegacion/nav.css"
 
 
 function Navegacion() {
@@ -15,12 +16,14 @@ function Navegacion() {
 
     const limpiarSugerencias = () => {
         setSugerencias([]);
+        console.log("limpia sugerencias")
     }
 
     const obtenerValorSugerido = (sugerencia) => sugerencia
 
     const onChange = (event, { newValue }) => {
         setvalor(newValue)
+        console.log("dispara on change")
     };
 
     const peticionSugerencias = ({ value }) => {
@@ -28,6 +31,7 @@ function Navegacion() {
         datos.set("busqueda", value);
         ApiPublic.autocompletado(datos)
             .then(response => setSugerencias(response.data))
+        console.log("realiza peticion")
     }
 
     const inputProps = {
@@ -49,17 +53,17 @@ function Navegacion() {
                         </Col>
                     </Row>
                 </Navbar.Brand>
-                <Form className="d-flex">
+                <Form>
                     <Stack direction="horizontal" gap={3}>
                         <Autosuggest
-                            suggestions={Sugerencias}
-                            onSuggestionsFetchRequested={peticionSugerencias}
-                            onSuggestionsClearRequested={limpiarSugerencias}
-                            getSuggestionValue={obtenerValorSugerido}
-                            renderSuggestion={Sugerencia}
-                            inputProps={inputProps}
-                        />
-                        <Button variant="outline-success">Buscar</Button>
+                        suggestions={Sugerencias}
+                        onSuggestionsFetchRequested={peticionSugerencias}
+                        onSuggestionsClearRequested={limpiarSugerencias}
+                        getSuggestionValue={obtenerValorSugerido}
+                        renderSuggestion={Sugerencia}
+                        inputProps={inputProps}
+                    />
+                    <Button variant="outline-success">Buscar</Button>
                     </Stack>
                 </Form>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

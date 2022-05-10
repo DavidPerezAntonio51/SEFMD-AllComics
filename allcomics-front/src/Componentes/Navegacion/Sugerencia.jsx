@@ -2,7 +2,7 @@
 
 function Sugerencia(sugerencia) {
     return ( 
-        <div>{sugerencia}</div>
+        <div className="sugerencia">{sugerencia}</div>
      );
 }
 
