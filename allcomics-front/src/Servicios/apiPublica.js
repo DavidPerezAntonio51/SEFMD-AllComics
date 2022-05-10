@@ -22,7 +22,7 @@ const totalComics = ()=> base.get("totalcomics")
 
 const buscar = (params)=> base.get("comics",{params});
 
-const paginasResultados = (params)=> base.get("busquedapaginas",{params});
+const paginasResultados = (params)=> base.get("busquedaPaginas",{params});
 
 const ApiPublic = {
     cargarComic,

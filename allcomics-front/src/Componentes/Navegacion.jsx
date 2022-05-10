@@ -4,7 +4,6 @@ import { Button, Col, Container, Form, FormControl, Nav, Navbar, NavDropdown, Ro
 import { Link } from "react-router-dom";
 import LoginContext from "../Contextos/LoginContext";
 import ApiPublic from "../Servicios/apiPublica";
-import Sugerencia from "./Navegacion/Sugerencia";
 import LogoAC from "../Assests/LogoAC.png"
 import "./Navegacion/nav.css"
 import "../Componentes/colores.css"
@@ -19,22 +18,38 @@ function Navegacion() {
 
     const onChange = (event) => {
         setvalor(event.target.value)
+        if(event.target.value === ''){
+            setSugerencias([])
+        }
     };
 
     useEffect(() => {
-        if (valor != '') {
+        let peticion = false
+        if (Sugerencias.length !== 0) {
+            Sugerencias.map(str => {
+                if (!str.includes(valor)) {
+                    peticion = true
+                } else {
+                    peticion = false
+                }
+            })
+        } else {
+            peticion = true
+        }
+        if (valor != '' && peticion) {
             const datos = new URLSearchParams();
             datos.set("busqueda", valor);
             ApiPublic.autocompletado(datos)
-                .then(response => setSugerencias(response.data))
-            console.log("realiza peticion")
+                .then(response => {
+                    setSugerencias(response.data)
+                })
         }
     }, [valor])
 
-    const handleBarraBusqueda = (e)=>{
-        if(e.key==='Enter' && valor!=''){
-            navigate('/comics?search='+valor);
-        }else if(e.key==='Enter'){
+    const handleBarraBusqueda = (e) => {
+        if (e.key === 'Enter' && valor != '') {
+            navigate('/comics?search=' + valor);
+        } else if (e.key === 'Enter') {
             navigate('/comics');
         }
     }
@@ -64,7 +79,7 @@ function Navegacion() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="comicslista" >Lista de Comics</Nav.Link>
+                        <Nav.Link as={Link} to="comics" >Lista de Comics</Nav.Link>
                         <Nav.Link as={Link} to="tiendas">Lista de Tiendas</Nav.Link>
                     </Nav>
                     <Nav>

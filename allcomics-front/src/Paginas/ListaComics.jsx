@@ -44,6 +44,11 @@ function ListaComics() {
         if (searchParams.get("search") === null) {
             const params = new URLSearchParams();
             params.append("page", ActivePage - 1);
+            ApiPublic.totalComics()
+                .then(response => {
+                    console.log(response.data)
+                    setPaginas(response.data)
+                })
             ApiPublic.obtenerListaComics(params)
                 .then(response => {
                     console.log(response.data)
@@ -52,23 +57,47 @@ function ListaComics() {
                 .finally(e => {
                     setShowLoading(false);
                 })
+
         } else {
-            console.log("pagina comics")
+            setSearchParams({ page: ActivePage - 1, search: searchParams.get('search') })
+            ApiPublic.paginasResultados(searchParams)
+                .then(response => { setPaginas(response.data) })
+            ApiPublic.buscar(searchParams)
+                .then(response => { setListaComics(response.data) })
+                .finally(() => {
+                    setShowLoading(false)
+                })
         }
     }, [ActivePage])
+
     useEffect(() => {
-        setSearchParams({ page: ActivePage, search: searchParams.get('search') })
-        console.log(searchParams.get('page'));
-        console.log(searchParams.get('search'));
+        setListaComics([])
+        setShowLoading(true)
         if (searchParams.get("search") !== null) {
-            setListaComics([])
-            setShowLoading(true)
+            setSearchParams({ page: 0, search: searchParams.get('search') })
+            console.log(searchParams.get('page'));
+            console.log(searchParams.get('search'));
             setActivePage(1)
-            console.log("peticion de comics")
+            ApiPublic.paginasResultados(searchParams)
+                .then(response => {
+                    setPaginas(response.data)
+                })
+            ApiPublic.buscar(searchParams)
+                .then(response => {
+                    setListaComics(response.data)
+                })
+                .finally(() => {
+                    setShowLoading(false)
+                })
         } else {
             setActivePage(1)
             const params = new URLSearchParams();
-            params.append("page", ActivePage - 1);
+            params.append("page", 0);
+            ApiPublic.totalComics()
+                .then(response => {
+                    console.log(response.data)
+                    setPaginas(response.data)
+                })
             ApiPublic.obtenerListaComics(params)
                 .then(response => {
                     console.log(response.data)

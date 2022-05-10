@@ -19,6 +19,8 @@ public interface RepositorioComics extends MongoRepository<Comics, String>{
     
     public List<Comics> findByNombreRegex(String regex);
     
+    public List<Comics> findByNombreStartsWith(String token);
+    
     public List<Comics> findByNombreRegex(String regex, Pageable page);
     
     public List<Comics> findByNombre(String comic);
