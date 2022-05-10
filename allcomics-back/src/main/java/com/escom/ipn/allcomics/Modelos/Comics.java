@@ -39,5 +39,11 @@ public class Comics {
     private String editorial;
     @Getter
     @Setter
+    private String tipodeportada;
+    @Getter
+    @Setter
+    private String descripcion;
+    @Getter
+    @Setter
     private Binary portada;
 }
