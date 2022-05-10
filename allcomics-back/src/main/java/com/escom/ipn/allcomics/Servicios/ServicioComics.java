@@ -31,7 +31,7 @@ public class ServicioComics {
     
     public List<String> autocompletado(String regex){
         List<String> nombres = new ArrayList();
-        comicsrepo.findByNombreLike(regex).forEach(comic -> {nombres.add(comic.getNombre());});
+        comicsrepo.findByNombreRegex(".*"+regex+".*").forEach(comic -> {nombres.add(comic.getNombre());});
         return nombres;
     }
     

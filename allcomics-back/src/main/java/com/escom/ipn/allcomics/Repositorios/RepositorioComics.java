@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface RepositorioComics extends MongoRepository<Comics, String>{
     
     
-    public List<Comics> findByNombreLike(String regex);
+    public List<Comics> findByNombreRegex(String regex);
     
     public List<Comics> findByNombre(String comic);
     

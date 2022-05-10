@@ -39,7 +39,6 @@ public class ControladorPrincipal {
     @GetMapping("/allcomics")
     public ResponseEntity<List<Inventario>> mostrarTodosLosComics(@RequestParam(name="page", defaultValue = "0") Integer page){
         List<Comics> pagina = comicsService.obtenerPagina(page);
-        System.out.println(comicsService.obtenerTotalComics());
         return new ResponseEntity(pagina, HttpStatus.OK);
     }
     
