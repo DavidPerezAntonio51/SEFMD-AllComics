@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import LoginContext from "../Contextos/LoginContext";
 import ApiPublic from "../Servicios/apiPublica";
 import Sugerencia from "./Navegacion/Sugerencia";
+import LogoAC from "../Assests/LogoAC.png"
 
 
 function Navegacion() {
@@ -22,11 +23,11 @@ function Navegacion() {
         setvalor(newValue)
     };
 
-    const peticionSugerencias = ({value}) => {
+    const peticionSugerencias = ({ value }) => {
         const datos = new URLSearchParams();
-        datos.set("busqueda",value);
+        datos.set("busqueda", value);
         ApiPublic.autocompletado(datos)
-        .then(response=>setSugerencias(response.data))
+            .then(response => setSugerencias(response.data))
     }
 
     const inputProps = {
@@ -42,21 +43,23 @@ function Navegacion() {
                 <Navbar.Brand as={Link} to="/">
                     <Row xs={4}>
                         <Col>
-                            All Comics
+                            <img
+                                style={{ width: 140, height: 90, marginBottom: -20 }}
+                                src={LogoAC} />                        
                         </Col>
                     </Row>
                 </Navbar.Brand>
                 <Form className="d-flex">
                     <Stack direction="horizontal" gap={3}>
                         <Autosuggest
-                        suggestions={Sugerencias}
-                        onSuggestionsFetchRequested={peticionSugerencias}
-                        onSuggestionsClearRequested={limpiarSugerencias}
-                        getSuggestionValue={obtenerValorSugerido}
-                        renderSuggestion={Sugerencia}
-                        inputProps={inputProps}
-                    />
-                    <Button variant="outline-success">Buscar</Button>
+                            suggestions={Sugerencias}
+                            onSuggestionsFetchRequested={peticionSugerencias}
+                            onSuggestionsClearRequested={limpiarSugerencias}
+                            getSuggestionValue={obtenerValorSugerido}
+                            renderSuggestion={Sugerencia}
+                            inputProps={inputProps}
+                        />
+                        <Button variant="outline-success">Buscar</Button>
                     </Stack>
                 </Form>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
