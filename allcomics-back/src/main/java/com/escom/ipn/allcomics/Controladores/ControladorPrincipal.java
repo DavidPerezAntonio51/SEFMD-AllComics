@@ -9,6 +9,7 @@ import com.escom.ipn.allcomics.Modelos.Comics;
 import com.escom.ipn.allcomics.Modelos.Inventario;
 import com.escom.ipn.allcomics.Servicios.ServicioComics;
 import com.escom.ipn.allcomics.Servicios.ServicioInventario;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +39,6 @@ public class ControladorPrincipal {
     @GetMapping("/allcomics")
     public ResponseEntity<List<Inventario>> mostrarTodosLosComics(@RequestParam(name="page", defaultValue = "0") Integer page){
         List<Comics> pagina = comicsService.obtenerPagina(page);
-        System.out.println(comicsService.obtenerTotalComics());
         return new ResponseEntity(pagina, HttpStatus.OK);
     }
     
@@ -48,8 +48,13 @@ public class ControladorPrincipal {
     }
     
     @GetMapping("/totalcomics")
-    public ResponseEntity<Integer> mostrarTotalComics(){
-        return new ResponseEntity(inventarioService.obtenerTotalComics(), HttpStatus.OK);
+    public ResponseEntity<List<Integer>> mostrarTotalComics(){
+        Integer comicsTotales = comicsService.obtenerTotalComics();
+        List<Integer> paginas = new ArrayList();
+        for(int i = 1; i<=Math.ceil(comicsTotales/15.0); i++){
+            paginas.add(i);
+        }
+        return new ResponseEntity(paginas, HttpStatus.OK);
     }
     
     @GetMapping("/autocompletadocomics")

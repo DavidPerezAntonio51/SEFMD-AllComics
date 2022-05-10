@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Autosuggest from "react-autosuggest";
 import { Button, Col, Container, Form, FormControl, Nav, Navbar, NavDropdown, Row, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import Sugerencia from "./Navegacion/Sugerencia";
 import LogoAC from "../Assests/LogoAC.png"
 import "./Navegacion/nav.css"
 import "../Componentes/colores.css"
+import { Hint } from "react-autocomplete-hint";
 
 
 function Navegacion() {
@@ -15,31 +16,19 @@ function Navegacion() {
     const [Sugerencias, setSugerencias] = useState([]);
     const [valor, setvalor] = useState('');
 
-    const limpiarSugerencias = () => {
-        setSugerencias([]);
-        console.log("limpia sugerencias")
-    }
-
-    const obtenerValorSugerido = (sugerencia) => sugerencia
-
-    const onChange = (event, { newValue }) => {
-        setvalor(newValue)
-        console.log("dispara on change")
+    const onChange = (event) => {
+        setvalor(event.target.value)
     };
 
-    const peticionSugerencias = ({ value }) => {
-        const datos = new URLSearchParams();
-        datos.set("busqueda", value);
-        ApiPublic.autocompletado(datos)
-            .then(response => setSugerencias(response.data))
-        console.log("realiza peticion")
-    }
-
-    const inputProps = {
-        placeholder: 'Buscar Comic',
-        value: valor,
-        onChange: onChange
-    };
+    useEffect(() => {
+        if (valor != '') {
+            const datos = new URLSearchParams();
+            datos.set("busqueda", valor);
+            ApiPublic.autocompletado(datos)
+                .then(response => setSugerencias(response.data))
+            console.log("realiza peticion")
+        }
+    }, [valor])
 
 
     return (
@@ -50,21 +39,19 @@ function Navegacion() {
                         <Col>
                             <img
                                 style={{ width: 140, height: 90, marginBottom: -10 }}
-                                src={LogoAC} />                        
+                                src={LogoAC} />
                         </Col>
                     </Row>
                 </Navbar.Brand>
-                    <Stack direction="horizontal" gap={3}>
-                        <Autosuggest
-                        suggestions={Sugerencias}
-                        onSuggestionsFetchRequested={peticionSugerencias}
-                        onSuggestionsClearRequested={limpiarSugerencias}
-                        getSuggestionValue={obtenerValorSugerido}
-                        renderSuggestion={Sugerencia}
-                        inputProps={inputProps}
-                    />
+                <Stack direction="horizontal" gap={3}>
+                    <Hint options={Sugerencias} allowTabFill={true}>
+                        <input
+                            value={valor}
+                            onChange={onChange}
+                        />
+                    </Hint>
                     <Button variant="outline-registro">Buscar</Button>
-                    </Stack>
+                </Stack>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">

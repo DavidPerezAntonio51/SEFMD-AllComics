@@ -16,12 +16,15 @@ const autocompletado = (params) => base.get("autocompletadocomics",{params});
 
 const cargarComic = (datosParaEnviar)=> base.post("upload/comic",datosParaEnviar,{headers:{'Content-Type':'mulipart/form-data'}});
 
-const obtenerListaComics = (params)=> base.get("allcomics");
+const obtenerListaComics = (params)=> base.get("allcomics",{params});
+
+const totalComics = ()=> base.get("totalcomics")
 
 const ApiPublic = {
     cargarComic,
     autocompletado,
-    obtenerListaComics
+    obtenerListaComics,
+    totalComics
 }
 
 export default ApiPublic;
