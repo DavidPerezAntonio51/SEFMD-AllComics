@@ -43,6 +43,10 @@ function RegistroTienda() {
                 <Form.Label>RFC</Form.Label>
                 <Form.Control type="text" placeholder="Ingresa el RFC de la tienda" onChange={(e)=>setRFC(e.target.value)} value={RFC}/>
             </Form.Group>
+            <Form.Group className="mb-3" controlId="formImagenTienda" >
+                    <Form.Label>Seleccione Icono De La Tiendac</Form.Label>
+                    <Form.Control type="file" size="sm" accept="image/*" onChange={(e)=>ImagenTienda(e.target.files[0])}/>
+                </Form.Group>
 
             <Button variant="registro" type="submit" onClick={enviarDatos}>
                 Registrar Tienda
