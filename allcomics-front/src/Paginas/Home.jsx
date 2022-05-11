@@ -1,12 +1,14 @@
 
-import { Carousel, Col, Row, Button} from "react-bootstrap";
-import React, { Component } from 'react';
+import { Carousel, Col, Row, Button } from "react-bootstrap";
+import { React, Component } from 'react';
+import ItemsCarousel from 'react-items-carousel';
 import { Container, } from "react-bootstrap";
-import Carousel from 'react-elastic-carousel';
 import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png";
 import Carrusel_Layout2 from "../Assests/Carrusel_Layout2.png"
 import Carrusel_Layout3 from "../Assests/Carrusel_Layout3.png"
 import Layout1 from "../Assests/Layout1.png"
+import Layout5 from "../Assests/Layout5.png"
+import Layout6 from "../Assests/Layout6.png"
 import Batman from "../Assests/Batman.jpg"
 function Home(props) {
   return (
@@ -64,34 +66,30 @@ function Home(props) {
           </Button>
         </h1>
       </Row>
+      <Row>
+      <Carousel>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Layout5}
+                alt="Comics 1"
+              />
 
+            </Carousel.Item>
 
-     
-    function App {} {
-      return (
-        <>
-        <h1 style={{ textAlign: "center"}}> </h1>
-        <div className="App">
-        <Carousel breakPoints={breakPoints}>
-        <Item>one</Item>
-        <Item>two</Item>
-        <Item>trhee</Item>
-        <Item>four</Item>
-        <Item>five</Item>
-        <Item>six</Item>
-        <Item>seven</Item>
-        <Item>eight</Item>
-        </Carousel>
-        </div>
-        </>
-      );
-    }
-  
-  
-}
-      
+            <Carousel.Item>
+              <img
+                className="d-block 	w-100"
+                src={Layout6}
+                alt="Comics 2"
+              />
 
-    </Container>
+            </Carousel.Item>
+          </Carousel>
+          </Row>
+          
+      </Container>
+
   );
 }
 
