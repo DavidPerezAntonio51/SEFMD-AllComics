@@ -42,7 +42,6 @@ function Navegacion() {
             datos.set("busqueda", valor);
             ApiPublic.autocompletado(datos)
                 .then(response => {
-                    console.log("peticion de autocompletado")
                     setSugerencias(response.data)
                 })
         }
@@ -74,6 +73,7 @@ function Navegacion() {
                             value={valor}
                             onChange={onChange}
                             onKeyDown={handleBarraBusqueda}
+                            placeholder="Busca un comic"
                         />
                     </Hint>
                     <Button variant="outline-registro">Buscar</Button>

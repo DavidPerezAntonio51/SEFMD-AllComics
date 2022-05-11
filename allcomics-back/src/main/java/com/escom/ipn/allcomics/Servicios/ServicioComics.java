@@ -6,7 +6,6 @@
 package com.escom.ipn.allcomics.Servicios;
 
 import com.escom.ipn.allcomics.Modelos.Comics;
-import com.escom.ipn.allcomics.Modelos.Inventario;
 import com.escom.ipn.allcomics.Repositorios.RepositorioComics;
 import java.util.ArrayList;
 import java.util.List;
