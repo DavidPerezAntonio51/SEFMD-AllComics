@@ -22,25 +22,27 @@ function Navegacion() {
             setSugerencias([])
         }
     };
-
-    useEffect(() => {
-        let peticion = false
+    const checkPeticion = () => {
         if (Sugerencias.length !== 0) {
             Sugerencias.map(str => {
-                if (!str.includes(valor)) {
-                    peticion = true
+                if (str.includes(valor)) {
+                    return false;
                 } else {
-                    peticion = false
+                    return true;
                 }
             })
         } else {
-            peticion = true
+            return true;
         }
-        if (valor != '' && peticion) {
+        
+    }
+    useEffect(() => {
+        if (valor != '' && checkPeticion()) {
             const datos = new URLSearchParams();
             datos.set("busqueda", valor);
             ApiPublic.autocompletado(datos)
                 .then(response => {
+                    console.log("peticion de autocompletado")
                     setSugerencias(response.data)
                 })
         }

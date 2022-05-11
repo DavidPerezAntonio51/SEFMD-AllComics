@@ -2,7 +2,7 @@ import { Badge, ListGroup, Col, Pagination, Spinner, Stack, Row, Container } fro
 import ApiPublic from "../Servicios/apiPublica";
 import { useEffect, useState } from "react";
 import "../Componentes/colores.css"
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 
 function ListaComics() {
@@ -138,7 +138,7 @@ function ListaComics() {
                                     <div className="fw-bold">{comic.nombre} #{comic.numerocomic}</div>
                                     Serie: {comic.serie}
                                 </Col>
-                                <Badge bg="primary text-wrap" pill >
+                                <Badge bg="primary text-wrap" pill as={Link} to={"/detalleComic?id="+comic.id}>
                                     Ver opciones en Existencia
                                 </Badge>
                             </ListGroup.Item>
