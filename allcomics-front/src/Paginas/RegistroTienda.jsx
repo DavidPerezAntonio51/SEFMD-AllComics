@@ -9,6 +9,7 @@ function RegistroTienda() {
     const [NombreTienda, setNombreTienda] = useState("");
     const [Direccion, setDireccion] = useState("");
     const [RFC, setRFC] = useState("");
+    const [IconoTienda, ImagenTienda] = useState();
     const MySwal =withReactContent(Swal) ;
 
     const enviarDatos = (e) => {
@@ -20,12 +21,14 @@ function RegistroTienda() {
         data.append("nombre",NombreTienda);
         data.append("direccion",Direccion);
         data.append("rfc",RFC);
+        data.append("ImagenTienda",IconoTienda);
         ApiPublic.cargarComic(data).then((response) => {
             console.log(response);
         })
         setNombreTienda("");
         setDireccion("");
         setRFC("");
+        ImagenTienda("");
     }
 
     return ( 
