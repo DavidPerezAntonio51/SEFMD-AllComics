@@ -7,19 +7,25 @@ package com.escom.ipn.allcomics.Controladores;
 
 import com.escom.ipn.allcomics.Modelos.Comics;
 import com.escom.ipn.allcomics.Modelos.Inventario;
+import com.escom.ipn.allcomics.Modelos.Tiendas;
 import com.escom.ipn.allcomics.Servicios.ServicioComics;
 import com.escom.ipn.allcomics.Servicios.ServicioInventario;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.BsonBinarySubType;
+import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -77,4 +83,28 @@ public class ControladorPrincipal {
     public ResponseEntity<List<String>> autocompletadoBusqueda(@RequestParam String busqueda){
         return new ResponseEntity(comicsService.autocompletado(busqueda), HttpStatus.OK);
     }
+    
+    @GetMapping("/alltiendas")
+    public ResponseEntity<List<Tiendas>> mostrarTodasLasTiendas(){
+        return new ResponseEntity(inventarioService.listaTiendas(),HttpStatus.OK);
+    }
+    
+    @PostMapping("/registrarTienda")
+    public ResponseEntity registrarTienda(
+            @RequestParam String nombre,
+            @RequestParam String rfc,
+            @RequestParam String direccion,
+            @RequestParam String horario,
+            @RequestParam("imagen") MultipartFile imagen
+    ) throws IOException{
+        Tiendas tienda = new Tiendas();
+        tienda.setNombre(nombre);
+        tienda.setRfc(rfc);
+        tienda.setDireccion(direccion);
+        tienda.setHorario(horario);
+        tienda.setImagentienda(new Binary(BsonBinarySubType.BINARY,imagen.getBytes()));
+        tienda = inventarioService.registrarTienda(tienda);
+        return new ResponseEntity(tienda.getId(),HttpStatus.OK);
+    }
+    
 }

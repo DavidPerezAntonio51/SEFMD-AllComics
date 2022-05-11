@@ -6,7 +6,9 @@
 package com.escom.ipn.allcomics.Servicios;
 
 import com.escom.ipn.allcomics.Modelos.Inventario;
+import com.escom.ipn.allcomics.Modelos.Tiendas;
 import com.escom.ipn.allcomics.Repositorios.RepositorioInventario;
+import com.escom.ipn.allcomics.Repositorios.RepositorioTiendas;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +25,9 @@ public class ServicioInventario {
     @Autowired
     private RepositorioInventario inventariorepo;
     
+    @Autowired
+    private RepositorioTiendas tiendasrepo;
+    
     public List<Inventario> obtenerPagina(Integer numeroPagina){
         Pageable pagewith_15_elements = PageRequest.of(numeroPagina, 15);
         return inventariorepo.findAll(pagewith_15_elements).getContent();
@@ -32,4 +37,11 @@ public class ServicioInventario {
         return inventariorepo.findAll().size();
     }
     
+    public Tiendas registrarTienda(Tiendas nuevatienda){
+        return tiendasrepo.save(nuevatienda);
+    }
+    
+    public List<Tiendas> listaTiendas(){
+        return tiendasrepo.findAll();
+    }
 }

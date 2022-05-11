@@ -55,6 +55,14 @@ function Navegacion() {
         }
     }
 
+    const handleOnClick = ()=> {
+        if (valor != '') {
+            navigate('/comics?search=' + valor);
+        } else {
+            navigate('/comics');
+        }
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
             <Container>
@@ -76,7 +84,7 @@ function Navegacion() {
                             placeholder="Busca un comic"
                         />
                     </Hint>
-                    <Button variant="outline-registro">Buscar</Button>
+                    <Button variant="outline-registro" onClick={handleOnClick}>Buscar</Button>
                 </Stack>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

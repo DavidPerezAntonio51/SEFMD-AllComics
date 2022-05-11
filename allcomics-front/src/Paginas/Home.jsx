@@ -2,7 +2,6 @@
 import { Carousel, Col, Row, Button} from "react-bootstrap";
 import React, { Component } from 'react';
 import { Container, } from "react-bootstrap";
-import Carousel from 'react-elastic-carousel';
 import Carrusel_Layout1 from "../Assests/Carrusel_Layout1.png";
 import Carrusel_Layout2 from "../Assests/Carrusel_Layout2.png"
 import Carrusel_Layout3 from "../Assests/Carrusel_Layout3.png"
@@ -64,33 +63,6 @@ function Home(props) {
           </Button>
         </h1>
       </Row>
-
-
-     
-    function App {} {
-      return (
-        <>
-        <h1 style={{ textAlign: "center"}}> </h1>
-        <div className="App">
-        <Carousel breakPoints={breakPoints}>
-        <Item>one</Item>
-        <Item>two</Item>
-        <Item>trhee</Item>
-        <Item>four</Item>
-        <Item>five</Item>
-        <Item>six</Item>
-        <Item>seven</Item>
-        <Item>eight</Item>
-        </Carousel>
-        </div>
-        </>
-      );
-    }
-  
-  
-}
-      
-
     </Container>
   );
 }
