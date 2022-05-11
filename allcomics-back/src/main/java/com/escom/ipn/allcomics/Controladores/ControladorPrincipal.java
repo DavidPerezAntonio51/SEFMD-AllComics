@@ -42,6 +42,11 @@ public class ControladorPrincipal {
         return new ResponseEntity(pagina, HttpStatus.OK);
     }
     
+    @GetMapping("/detallescomic")
+    public ResponseEntity<Comics> detallesDeComic(@RequestParam String id){
+        return new ResponseEntity(comicsService.detalles(id),HttpStatus.OK);
+    }
+    
     @GetMapping("/comics")
     public ResponseEntity<List<Comics>> muestraComicsEspecificos(@RequestParam String search, @RequestParam(name="page", defaultValue = "0") Integer page){
         List<Comics> resultadoBusqueda = comicsService.comicsBusqueda(search, page);

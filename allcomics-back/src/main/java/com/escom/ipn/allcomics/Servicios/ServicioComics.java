@@ -51,4 +51,8 @@ public class ServicioComics {
     public Integer obtenerTotalComics(){
         return comicsrepo.findAll().size();
     }
+    
+    public Comics detalles(String id){
+        return comicsrepo.findById(id).get();
+    }
 }

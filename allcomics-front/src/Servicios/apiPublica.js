@@ -24,13 +24,16 @@ const buscar = (params)=> base.get("comics",{params});
 
 const paginasResultados = (params)=> base.get("busquedaPaginas",{params});
 
+const detallesComic = (params) => base.get("detallescomic",{params});
+
 const ApiPublic = {
     cargarComic,
     autocompletado,
     obtenerListaComics,
     totalComics,
     buscar,
-    paginasResultados
+    paginasResultados,
+    detallesComic
 }
 
 export default ApiPublic;
