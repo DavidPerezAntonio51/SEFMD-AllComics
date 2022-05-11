@@ -135,10 +135,14 @@ function ListaComics() {
                                     />
                                 </Col>
                                 <Col xs={9} md={9} lg={9} className="text-align-left text-wrap">
-                                    <div className="fw-bold">{comic.nombre} #{comic.numerocomic}</div>
-                                    Serie: {comic.serie}
+                                    <div className="fw-bold text-monospace">
+                                        <h3>{comic.nombre} #{comic.numerocomic}</h3>
+                                    </div>
+                                    <h4 className="text-monospace">Serie: {comic.serie}</h4>
+                                    <br/>
+                                    <div className="text-monospace"><h4>Tipo de portada: {comic.tipodeportada}</h4></div>
                                 </Col>
-                                <Badge bg="primary text-wrap" pill as={Link} to={"/detalleComic?id="+comic.id}>
+                                <Badge bg="registro text-wrap" pill as={Link} to={"/detalleComic?id=" + comic.id}>
                                     Ver opciones en Existencia
                                 </Badge>
                             </ListGroup.Item>
@@ -151,9 +155,9 @@ function ListaComics() {
                         <Col></Col>
                         <Col md={{ span: 4, offset: 3 }} xs={{ span: 4, offset: 0.75 }}>
                             <Stack direction="horizontal" gap={3} className="ms-2 me-auto " >
-                                <Spinner animation="grow" variant="primary" />
+                                <Spinner animation="grow" variant="registro" />
+                                <Spinner animation="grow" variant="purple" />
                                 <Spinner animation="grow" variant="secondary" />
-                                <Spinner animation="grow" variant="success" />
                             </Stack>
                         </Col>
                         <Col></Col>

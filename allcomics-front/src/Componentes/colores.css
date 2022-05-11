@@ -19,3 +19,12 @@
     background-color:#7066e0 ;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+.text-registro{
+    color: #7066e0;
+    border-color: #7066e0;
+}
+.bg-registro{
+    color: white;
+    border-color: #7066e0;
+    background-color:#7066e0 ;
+}
