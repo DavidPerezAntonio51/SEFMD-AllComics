@@ -107,4 +107,9 @@ public class ControladorPrincipal {
         return new ResponseEntity(tienda.getId(),HttpStatus.OK);
     }
     
+    @GetMapping("/novedadesInicio")
+    public ResponseEntity<List<Comics>> novedades(){
+        return new ResponseEntity(comicsService.novedades(),HttpStatus.OK);
+    }
+    
 }

@@ -26,5 +26,4 @@ public interface RepositorioComics extends MongoRepository<Comics, String>{
     public List<Comics> findByNombre(String comic);
     
     
-    
 }
