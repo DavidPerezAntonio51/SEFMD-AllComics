@@ -4,9 +4,7 @@ const base = axios.create({
     baseURL: 'http://localhost:8081/api/public/'
 })
 
-const inicarSesion = (datosParaEnviar) => {
-    base.post("inicarsesion",datosParaEnviar)
-}
+const inicarSesion = (datosParaEnviar) => base.post("inicarsesion",datosParaEnviar);
 
 const registrar = (datosParaEnviar) => {
 

@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
@@ -54,5 +55,10 @@ public class ServicioComics {
     
     public Comics detalles(String id){
         return comicsrepo.findById(id).get();
+    }
+    
+    public List<Comics> novedades(){
+        Pageable page = PageRequest.of(0, 5, Sort.by(Sort.Direction.DESC, "_id"));
+        return comicsrepo.findAll(page).getContent();
     }
 }
