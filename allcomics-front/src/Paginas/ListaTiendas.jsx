@@ -8,7 +8,17 @@ import tc_icon3 from "../Assests/tc_icon3.jpg"
 import tc_icon4 from "../Assests/tc_icon4.jpg"
 import tc_icon5 from "../Assests/tc_icon5.png"
 import tc_icon6 from "../Assests/tc_icon6.jpg"
+import { useEffect, useState } from "react";
+import ApiPublic from "../Servicios/apiPublica";
 function ListaTiendas() {
+    const [Tiendas, setTiendas] = useState([]);
+    useEffect(() => {
+        ApiPublic.obtenerListaTiendas()
+            .then(response => {
+                setTiendas(response.data);
+            })
+    }, [])
+
     return (
         <>
             <div>
@@ -29,64 +39,29 @@ function ListaTiendas() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><img
-                                    style={{ width: 80, height: 80, marginBottom: -10 }}
-                                    src={tc_icon1} /></td>
-                                <td>Comics Mexico</td>
-                                <td>Av. Revolución 50, Escandón I Secc, Miguel Hidalgo, 11800 Ciudad de México, CDMX</td>
-                                <td>Lun-Sab <br />11:00hrs-20:00hrs </td>
-                            </tr>
-                            <tr>
-                                <td><img
-                                    style={{ width: 80, height: 80, marginBottom: -10 }}
-                                    src={tc_icon2} /></td>
-                                <td>Fantástico Comics</td>
-                                <td>Félix Cuevas 835, Col del Valle Sur, Benito Juárez, 03100 Ciudad de México, CDMX</td>
-                                <td>Lun-Dom <br />10:00hrs-20:30hrs</td>
-                            </tr>
-                            <tr>
-                                <td><img
-                                    style={{ width: 80, height: 80, marginBottom: -10 }}
-                                    src={tc_icon3} /></td>
-                                <td>Xanddar Comics</td>
-                                <td>Balderas 12 Piso 3, Despacho 301, Cuauhtémoc, 06000 Ciudad de México, CDMX</td>
-                                <td>Lun-Sab <br />10:00hrs-17:00hrs</td>
-                            </tr>
-                            <tr>
-                                <td><img
-                                    style={{ width: 80, height: 80, marginBottom: -10 }}
-                                    src={tc_icon4} /></td>
-                                <td>Unlimited Edition comics</td>
-                                <td>C. 64 518-512, Centro, 97000 Mérida, Yuc</td>
-                                <td>Lun-Dom <br />10:00hrs-20:00hrs</td>
-                            </tr>
-                            <tr>
-                                <td><img
-                                    style={{ width: 80, height: 80, marginBottom: -10 }}
-                                    src={tc_icon5} /></td>
-                                <td>El Quinto Mundo</td>
-                                <td>Prol. P.º de la Reforma 215-interior 505, Santa Fe, Bosques de las Lomas, Álvaro Obregón, 01330 Ciudad de México, CDMX</td>
-                                <td>Lun-Dom <br />12:00hrs-20:00hrs</td>
-                            </tr>
-                            <tr>
-                                <td><img
-                                    style={{ width: 80, height: 80, marginBottom: -10 }}
-                                    src={tc_icon6} /></td>
-                                <td>Xibalbá Store</td>
-                                <td>Entrega a domicilio</td>
-                                <td>Lun-Sab <br />11:00hrs-17:00hrs</td>
-                            </tr>
+                            {Tiendas.map(tienda => {
+                                return (
+                                    <tr>
+                                        <td><img
+                                            style={{ width: 80, height: 80, marginBottom: -10 }}
+                                            src={"data:image/png;base64," + btoa(new Uint8Array(tienda.imagentienda.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))} />
+                                        </td>
+                                        <td>{tienda.nombre}</td>
+                                        <td>{tienda.direccion}</td>
+                                        <td>{tienda.horario}</td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </Table>
                 </Row>
             </Container>
 
-                <div>
-                    <img
-                        className="d-block w-100"
-                        src={Layout4} />
-                </div>
+            <div>
+                <img
+                    className="d-block w-100"
+                    src={Layout4} />
+            </div>
 
         </>
     );
