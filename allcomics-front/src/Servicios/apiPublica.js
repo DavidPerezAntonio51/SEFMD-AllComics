@@ -26,6 +26,10 @@ const paginasResultados = (params)=> base.get("busquedaPaginas",{params});
 
 const detallesComic = (params) => base.get("detallescomic",{params});
 
+const registrarTienda = (data)=> base.post("registrarTienda",data,{headers:{"Content-Type": "multipart/form-data"}});
+
+const obtenerListaTiendas = ()=> base.get("alltiendas");
+
 const ApiPublic = {
     cargarComic,
     autocompletado,
@@ -33,7 +37,9 @@ const ApiPublic = {
     totalComics,
     buscar,
     paginasResultados,
-    detallesComic
+    detallesComic,
+    registrarTienda,
+    obtenerListaTiendas
 }
 
 export default ApiPublic;

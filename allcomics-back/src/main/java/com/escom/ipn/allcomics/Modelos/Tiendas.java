@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -34,4 +35,10 @@ public class Tiendas {
     @Getter
     @Setter
     private String direccion;
+    @Getter
+    @Setter
+    private String horario;
+    @Getter
+    @Setter
+    private Binary imagentienda;
 }
