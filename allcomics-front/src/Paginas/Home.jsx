@@ -1,5 +1,5 @@
 
-import { Carousel, Col, Row, Button } from "react-bootstrap";
+import { Carousel, Col, Row, Button, Stack, CarouselItem } from "react-bootstrap";
 import { React, Component } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import { Container, } from "react-bootstrap";
@@ -61,13 +61,13 @@ function Home(props) {
         <h1 style={{ color: '#138CFF' }}>
           Nuevos Lanzamientos
           <Button
-            variant="outline-secondary">
+            variant="outline-registro">
             Ver mas...
           </Button>
         </h1>
       </Row>
-      <Row>
-      <Carousel>
+      <Row >
+        {/*       <Carousel> 
             <Carousel.Item>
               <img
                 className="d-block w-100"
@@ -85,10 +85,37 @@ function Home(props) {
               />
 
             </Carousel.Item>
-          </Carousel>
-          </Row>
-          
-      </Container>
+          </Carousel> */}
+
+        <Stack direction="horizontal" gap={2} className="justify-content-center">
+          <div className="bg-light border">
+            <img
+              className="img-thumbnail"
+              src={Layout5}
+              alt="Comics 1"
+              width={500}
+            />
+          </div>
+          <div className="bg-light border">
+            <img
+              className="img-thumbnail"
+              src={Layout6}
+              alt="Comics 2"
+              width={500}
+            />
+          </div>
+          <div className="bg-light border">
+            <img
+              className="img-thumbnail"
+              src={Layout6}
+              alt="Comics 2"
+              width={500}
+            />
+          </div>
+        </Stack>
+      </Row>
+
+    </Container>
 
   );
 }

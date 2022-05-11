@@ -3,6 +3,7 @@ import { Col, Container, Row, Stack, Form, Button, Table, Spinner } from "react-
 import { useSearchParams } from "react-router-dom";
 import SpiderMan_2099 from "../Assests/SpiderMan_2099.jpg"
 import ApiPublic from "../Servicios/apiPublica";
+import "../Componentes/colores.css"
 
 function DetalleComic() {
     const [params, setParams] = useSearchParams();
@@ -13,20 +14,20 @@ function DetalleComic() {
             .then(response => {
                 setComic(response.data);
             })
-    },[])
+    }, [])
 
 
     return (
         <Container fluid>
-            {Comic===null
+            {Comic === null
                 ?
                 <Row>
                     <Col></Col>
                     <Col md={{ span: 4, offset: 3 }} xs={{ span: 4, offset: 0.75 }}>
                         <Stack direction="horizontal" gap={3} className="ms-2 me-auto " >
-                            <Spinner animation="grow" variant="primary" />
+                            <Spinner animation="grow" variant="registro" />
+                            <Spinner animation="grow" variant="purple" />
                             <Spinner animation="grow" variant="secondary" />
-                            <Spinner animation="grow" variant="success" />
                         </Stack>
                     </Col>
                     <Col></Col>
