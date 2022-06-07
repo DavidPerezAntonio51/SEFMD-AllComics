@@ -41,7 +41,7 @@ public class ControladorCargaComics {
             @RequestParam("editorial") String editorial,
             @RequestParam("portada") MultipartFile portada,
             @RequestParam("tipodeportada") String tipodeportada,
-            @RequestParam("descripcion") String descripcion
+            @RequestParam("descripción") String descripcion
     )throws IOException{
         Comics comic = new Comics();
         comic.setNombre(nombre);

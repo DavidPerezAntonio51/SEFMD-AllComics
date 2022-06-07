@@ -60,11 +60,11 @@ function RegistroComic() {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicTipoPortada">
                     <Form.Label>Tipo de portada</Form.Label>
-                    <Form.Control type="text" placeholder="Ingresa el tipo de pórtada" onChange={(e)=>setTipodePortada(e.target.value)} value={Editorial}/>
+                    <Form.Control type="text" placeholder="Ingresa el tipo de pórtada" onChange={(e)=>setTipodePortada(e.target.value)} value={TipodePortada}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicDescripcionC">
                     <Form.Label>Descripción</Form.Label>
-                    <Form.Control type="text" placeholder="Ingresa la descripción del comic" onChange={(e)=>setDescripción(e.target.value)} value={Editorial}/>
+                    <Form.Control type="text" placeholder="Ingresa la descripción del comic" onChange={(e)=>setDescripción(e.target.value)} value={Descripcion}/>
                 </Form.Group>
 
                 <Form.Group controlId="formImagenComic" className="mb-3">
