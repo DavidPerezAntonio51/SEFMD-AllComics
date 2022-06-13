@@ -69,17 +69,17 @@ function DetalleComic() {
                                     <tbody>
                                         <tr>
                                             <th colSpan={2}>Comics Mexico</th>
-                                            <th> 5 </th>
+                                            <th> 15 </th>
                                             <th>$129.00</th>
                                         </tr>
                                         <tr>
                                             <th colSpan={2}>Xanddar Comics</th>
-                                            <th> 2 </th>
+                                            <th> 32 </th>
                                             <th>$169.00</th>
                                         </tr>
                                         <tr>
                                             <th colSpan={2}>Xibalbá Store</th>
-                                            <th> 2 </th>
+                                            <th> 25 </th>
                                             <th>$130.00</th>
                                         </tr>
                                     </tbody>
